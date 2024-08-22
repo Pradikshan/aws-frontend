@@ -23,12 +23,12 @@ function Navbar({ className }: { className?: string }) {
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Home">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">Home</HoveredLink>
+            <HoveredLink href="/">Home</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Features">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">View Features</HoveredLink>
+            <HoveredLink href="/features">View Features</HoveredLink>
           </div>
         </MenuItem>
 
@@ -36,19 +36,19 @@ function Navbar({ className }: { className?: string }) {
           <div className="text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
               title="View Album"
-              href="https://algochurn.com"
+              href="/"
               src="https://assets.aceternity.com/demos/algochurn.webp"
               description="All the albums curated by DreamStreamer"
             />
             <ProductItem
               title="View Artists"
-              href="https://tailwindmasterkit.com"
+              href="/"
               src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
               description="All the Artists affiliated with DreamStreamer"
             />
             <ProductItem
               title="View Songs"
-              href="https://gomoonbeam.com"
+              href="/"
               src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
               description="All the songs curated by DreamStreamer"
             />
@@ -57,14 +57,14 @@ function Navbar({ className }: { className?: string }) {
 
         <MenuItem setActive={setActive} active={active} item="Pricing">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">View Subscription Info</HoveredLink>
+            <HoveredLink href="/pricing">View Subscription Info</HoveredLink>
           </div>
         </MenuItem>
 
         <MenuItem setActive={setActive} active={active} item="About & Support">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">About Us</HoveredLink>
-            <HoveredLink href="/web-dev">Support</HoveredLink>
+            <HoveredLink href="/about">About Us</HoveredLink>
+            <HoveredLink href="/support">Support</HoveredLink>
           </div>
         </MenuItem>
       </Menu>
