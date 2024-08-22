@@ -4,6 +4,9 @@ import { SparklesCore } from "./ui/sparkles";
 export function Sparkles() {
   return (
     <div className="h-[40rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+      <p className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-600 md:text-2xl text-xl lg:text-4xl font-bold">
+        Welcome To
+      </p>
       <h1 className="md:text-5xl text-3xl lg:text-7xl font-bold text-center text-white relative z-20">
         DreamStreamer
       </h1>
