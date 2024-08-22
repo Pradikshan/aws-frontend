@@ -42,7 +42,7 @@ export function TypewriterTextEffect() {
         <button className="p-[3px] relative transition-all ease-in-out duration-500 hover:scale-105">
           <div className="absolute inset-0 bg-gradient-to-r  from-pink-500 to-violet-600 rounded-lg" />
           <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white font-semibold hover:bg-transparent">
-            Start Your free Trial
+            Start Your Free Trial
           </div>
         </button>
         <button className="p-[3px] relative transition-all ease-in-out duration-500 hover:scale-105">
