@@ -2,7 +2,7 @@ import FeaturedCard from "./components/FeaturedCard";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Approutes } from "./routes/Approutes";
 import Home from "./views/Home";
-import { NavbarDemo } from "./components/Navbar";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       </div>
       <FeaturedCard />
       <p>Hello men</p> */}
-        <NavbarDemo />
+        <Navbar />
         <Approutes />
       </>
     </Router>
