@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
 import { cn } from "../utils/cn.ts";
 
-export function NavbarDemo() {
+export function Navbar() {
   return (
     <div className="relative w-full flex items-center justify-center">
-      <Navbar className="top-2" />
+      <NavbarFunc className="top-2" />
       {/* <p className="text-black dark:text-white">
         The Navbar will show on top of the page
       </p> */}
@@ -14,7 +14,7 @@ export function NavbarDemo() {
   );
 }
 
-function Navbar({ className }: { className?: string }) {
+function NavbarFunc({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
     <div
@@ -36,13 +36,13 @@ function Navbar({ className }: { className?: string }) {
           <div className="text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
               title="View Album"
-              href="/"
+              href="https://algochurn.com"
               src="https://assets.aceternity.com/demos/algochurn.webp"
               description="All the albums curated by DreamStreamer"
             />
             <ProductItem
               title="View Artists"
-              href="/"
+              href="/hello"
               src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
               description="All the Artists affiliated with DreamStreamer"
             />
@@ -57,7 +57,9 @@ function Navbar({ className }: { className?: string }) {
 
         <MenuItem setActive={setActive} active={active} item="Pricing">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/pricing">View Subscription Info</HoveredLink>
+            <HoveredLink href="https://youtube.com">
+              View Subscription Info
+            </HoveredLink>
           </div>
         </MenuItem>
 
