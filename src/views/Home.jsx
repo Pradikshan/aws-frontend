@@ -4,6 +4,7 @@ import { VortexDemo } from "../components/Vortex";
 import { TypewriterTextEffect } from "../components/TypeWriterEffect";
 import { WavyBackgroundEffect } from "../components/WavyBackgroundEffect";
 import { GoogleGeminiHeroEffect } from "../components/GoogleGeminiHeroEffect";
+import { LampEffect } from "../components/LampEffect";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       {/* <GoogleGeminiHeroEffect /> */}
       {/* <VortexDemo /> */}
       <TypewriterTextEffect />
+      <LampEffect />
     </>
   );
 };
