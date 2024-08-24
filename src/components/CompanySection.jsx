@@ -4,9 +4,7 @@ const CompanySection = () => {
   return (
     <div>
       <div className="flex flex-col justify-center items-center mt-36">
-        <p className="text-white text-5xl font-semibold my-16">
-          Our Music Partners
-        </p>
+        <p className="section-heading">Our Music Partners</p>
         <div className="flex flex-row justify-between">
           <img
             src="/public/images/universal.jpg"
