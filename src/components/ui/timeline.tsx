@@ -40,10 +40,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
           History of DreamStreamer
         </h2>
-        {/* <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
-        </p> */}
+        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
+          A footnote of what we at DreamStreamer have achieved since its
+          inception.
+        </p>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
