@@ -21,7 +21,7 @@ const Pricing = () => {
     },
 
     {
-      icon: "/images/free-tier.png",
+      icon: "/images/premium-tier.png",
       plan: "Premium Plan",
       access_level: "Premium Experience",
       price: "$9.99/month",
@@ -37,7 +37,7 @@ const Pricing = () => {
       cta: "Upgrade to Premium",
     },
     {
-      icon: "/images/free-tier.png",
+      icon: "/images/family-tier.png",
       plan: "Family Plan",
       access_level: "Family Groove",
       price: "$14.99/month",
@@ -53,7 +53,7 @@ const Pricing = () => {
       cta: "Get Family Plan",
     },
     {
-      icon: "/images/free-tier.png",
+      icon: "/images/student-tier.png",
       plan: "Student Plan",
       access_level: "Student Beat",
       price: "$4.99/month",
@@ -67,7 +67,7 @@ const Pricing = () => {
       cta: "Join as a Student",
     },
     {
-      icon: "/images/free-tier.png",
+      icon: "/images/hifi-tier.png",
       plan: "Hi-Fi Plan",
       access_level: "Hi-Fi Sound",
       price: "$19.99/month",
