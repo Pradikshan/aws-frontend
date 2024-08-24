@@ -1,21 +1,22 @@
 import { BackgroundGradient } from "./ui/background-gradient";
+import { GiArtificialIntelligence } from "react-icons/gi";
 
-const FeaturedCard = ({ title, category, price, children }) => {
+const FeaturedCard = () => {
   return (
     <BackgroundGradient>
-      <div className="bg-white rounded-[1.375rem]">
-        {children}
-
-        <div className="m-2">
-          <p className="text-lg font-bold">{title}</p>
-          <p className="text-slate-500">{category}</p>
-          <p className="font-bold">{price}</p>
-        </div>
-
-        <div className="flex justify-center">
-          <button className="w-11/12 p-3 my-4 border-2 border-black rounded-full bg-black text-white font-bold hover:bg-white hover:text-black">
+      <div className="bg-white rounded-[1.375rem] px-3 py-7">
+        <div className="flex flex-col justify-center">
+          {/* <button className="w-11/12 p-3 my-4 border-2 border-black rounded-full bg-black text-white font-bold hover:bg-white hover:text-black">
             See more
-          </button>
+          </button> */}
+          <div className="flex flex-row items-center">
+            <GiArtificialIntelligence className="text-3xl me-5" />
+            <p className="text-lg font-bold">AI-Driven Recommendations</p>
+          </div>
+          <p className="mt-3">
+            Our advanced AI learns your preferences to deliver the perfect
+            soundtrack, anytime.
+          </p>
         </div>
       </div>
     </BackgroundGradient>
