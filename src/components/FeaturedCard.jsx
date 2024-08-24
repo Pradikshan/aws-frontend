@@ -1,4 +1,5 @@
 import { BackgroundGradient } from "./ui/background-gradient";
+import { Meteors } from "./ui/meteors";
 
 const FeaturedCard = ({ icon, heading, text }) => {
   return (
@@ -13,6 +14,7 @@ const FeaturedCard = ({ icon, heading, text }) => {
             <p className="text-lg font-bold">{heading}</p>
           </div>
           <p className="mt-3">{text}</p>
+          {/* <Meteors number={20} /> */}
         </div>
       </div>
     </BackgroundGradient>
