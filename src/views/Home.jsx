@@ -7,6 +7,7 @@ import { GoogleGeminiHeroEffect } from "../components/GoogleGeminiHeroEffect";
 import { LampEffect } from "../components/LampEffect";
 import FeaturesOverview from "../components/FeaturesOverview";
 import CompanySection from "../components/CompanySection";
+import TestimonialSection from "../components/TestimonialSection";
 
 const Home = () => {
   return (
@@ -16,9 +17,10 @@ const Home = () => {
       {/* <GoogleGeminiHeroEffect /> */}
       {/* <VortexDemo /> */}
       <TypewriterTextEffect />
-      <LampEffect />
+      {/* <LampEffect /> */}
       <FeaturesOverview />
       <CompanySection />
+      <TestimonialSection />
     </>
   );
 };
