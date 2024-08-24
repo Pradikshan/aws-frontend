@@ -99,10 +99,8 @@ export const ProductItem = ({
       /> */}
       <img
         src={src}
-        width={140}
-        height={70}
         alt={title}
-        className="flex-shrink-0 rounded-md shadow-2xl"
+        className="flex-shrink-0 rounded-md shadow-2xl w-20 h-auto object-cover"
       />
 
       <div>
