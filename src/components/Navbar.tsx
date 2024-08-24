@@ -57,9 +57,7 @@ function NavbarFunc({ className }: { className?: string }) {
 
         <MenuItem setActive={setActive} active={active} item="Pricing">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="https://youtube.com">
-              View Subscription Info
-            </HoveredLink>
+            <HoveredLink href="/pricing">View Subscription Info</HoveredLink>
           </div>
         </MenuItem>
 
