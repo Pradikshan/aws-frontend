@@ -90,7 +90,7 @@ const Pricing = () => {
         We have a pricing plan that fits your every need
       </p>
       <p className="text-white text-center text-xl -mt-8">
-        Start with a free plan, upgarde anytime!
+        Start with a free plan, upgrade anytime!
       </p>
       <div className="grid grid-cols-3 gap-8 mx-8 my-20">
         {pricingDetails.map((detail, index) => (
