@@ -30,7 +30,7 @@ const PricingCard = ({ pricingDetails }) => {
                 <li key={index}>{feature}</li>
               ))}
             </ul>
-            <button className="w-11/12 p-3 my-4 border-2 border-black rounded-full bg-black text-white font-bold hover:bg-white hover:text-black">
+            <button className="w-11/12 p-3 my-4  rounded-full bg-black text-white font-bold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500">
               {pricingDetails.cta}
             </button>
           </div>
