@@ -32,7 +32,7 @@ const FeaturesOverview = () => {
           icon={"/public/images/streaming.png"}
           heading={"Seamless Streaming"}
           text={
-            "Enjoy uninterrupted music with smooth, high-quality streaming across all your devices, wherever you go."
+            "Enjoy uninterrupted music with smooth, high-quality streaming across all your devices, wherever you go anywhere in the world."
           }
         />
       </div>
