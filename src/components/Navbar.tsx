@@ -37,19 +37,19 @@ function NavbarFunc({ className }: { className?: string }) {
             <ProductItem
               title="View Albums"
               href="/"
-              src="/public/images/album-cover.jpg"
+              src="/images/album-cover.jpg"
               description="All the albums curated by DreamStreamer"
             />
             <ProductItem
               title="View Artists"
               href="/hello"
-              src="/public/images/artists-cover.jpg"
+              src="/images/artists-cover.jpg"
               description="All the Artists affiliated with DreamStreamer"
             />
             <ProductItem
               title="View Songs"
               href="/"
-              src="/public/images/song-cover.jpg"
+              src="/images/song-cover.jpg"
               description="All the songs curated by DreamStreamer"
             />
           </div>
