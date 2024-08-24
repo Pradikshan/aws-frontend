@@ -35,21 +35,21 @@ function NavbarFunc({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="Music">
           <div className="text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
-              title="View Album"
-              href="https://algochurn.com"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
+              title="View Albums"
+              href="/"
+              src="/public/images/album-cover.jpg"
               description="All the albums curated by DreamStreamer"
             />
             <ProductItem
               title="View Artists"
               href="/hello"
-              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
+              src="/public/images/artists-cover.jpg"
               description="All the Artists affiliated with DreamStreamer"
             />
             <ProductItem
               title="View Songs"
               href="/"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
+              src="/public/images/song-cover.jpg"
               description="All the songs curated by DreamStreamer"
             />
           </div>
