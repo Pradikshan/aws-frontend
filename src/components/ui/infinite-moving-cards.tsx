@@ -11,6 +11,7 @@ export const InfiniteMovingCards = ({
   items: {
     quote: string;
     name: string;
+    image: string;
     title: string;
   }[];
   direction?: "left" | "right";
@@ -101,6 +102,11 @@ export const InfiniteMovingCards = ({
                 {item.quote}
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center">
+                <img
+                  src={item.image}
+                  className="w-12 h-12 mx-2 rounded-full object-cover border-2 border-black"
+                  alt="person-pic"
+                />
                 <span className="flex flex-col gap-1">
                   <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
                     {item.name}
