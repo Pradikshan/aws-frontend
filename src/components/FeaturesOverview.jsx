@@ -12,21 +12,21 @@ const FeaturesOverview = () => {
         <FeaturesBox />
         <FeaturesBox /> */}
         <FeaturedCard
-          icon={"/public/images/playlist-1.png"}
+          icon={"/images/playlist-1.png"}
           heading={"Personalized Playlists"}
           text={
             "Let our advanced AI curate playlists tailored to your unique musical taste, ensuring every track resonates with you."
           }
         />
         <FeaturedCard
-          icon={"/public/images/genre.png"}
+          icon={"/images/genre.png"}
           heading={"Wide Genre Selection"}
           text={
             "Explore an expansive library spanning every genre, from timeless classics to the latest hits, all in one place."
           }
         />
         <FeaturedCard
-          icon={"/public/images/streaming.png"}
+          icon={"/images/streaming.png"}
           heading={"Seamless Streaming"}
           text={
             "Enjoy uninterrupted music with smooth, high-quality streaming across all your devices, wherever you go anywhere in the world."
