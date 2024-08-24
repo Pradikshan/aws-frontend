@@ -21,8 +21,20 @@ const FeaturesOverview = () => {
             "Let our advanced AI curate playlists tailored to your unique musical taste, ensuring every track resonates with you."
           }
         />
-        <FeaturedCard />
-        <FeaturedCard />
+        <FeaturedCard
+          icon={"/public/images/music.png"}
+          heading={"Wide Genre Selection"}
+          text={
+            "Explore an expansive library spanning every genre, from timeless classics to the latest hits, all in one place."
+          }
+        />
+        <FeaturedCard
+          icon={"/public/images/music.png"}
+          heading={"Seamless Streaming"}
+          text={
+            "Enjoy uninterrupted music with smooth, high-quality streaming across all your devices, wherever you go."
+          }
+        />
       </div>
     </div>
   );
