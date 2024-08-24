@@ -1,6 +1,7 @@
 import React from "react";
 import FeaturesBox from "./FeaturesBox";
 import FeaturedCard from "./FeaturedCard";
+import { GiArtificialIntelligence } from "react-icons/gi";
 
 const FeaturesOverview = () => {
   return (
@@ -13,7 +14,13 @@ const FeaturesOverview = () => {
         <FeaturesBox />
         <FeaturesBox />
         <FeaturesBox /> */}
-        <FeaturedCard />
+        <FeaturedCard
+          icon={<GiArtificialIntelligence className="text-3xl me-5" />}
+          heading={"Personalized Playlists"}
+          text={
+            "Let our advanced AI curate playlists tailored to your unique musical taste, ensuring every track resonates with you."
+          }
+        />
         <FeaturedCard />
         <FeaturedCard />
       </div>
