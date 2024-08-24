@@ -22,7 +22,12 @@ export const BackgroundGradient = ({
     },
   };
   return (
-    <div className={cn("relative p-[4px] group", containerClassName)}>
+    <div
+      className={cn(
+        "relative p-[4px] group hover:scale-105 transition-all ease-in-out duration-500",
+        containerClassName
+      )}
+    >
       <motion.div
         variants={animate ? variants : undefined}
         initial={animate ? "initial" : undefined}
