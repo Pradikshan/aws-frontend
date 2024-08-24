@@ -1,7 +1,7 @@
 import { BackgroundGradient } from "./ui/background-gradient";
 import { GiArtificialIntelligence } from "react-icons/gi";
 
-const FeaturedCard = () => {
+const FeaturedCard = ({ icon, heading, text }) => {
   return (
     <BackgroundGradient>
       <div className="bg-white rounded-[1.375rem] px-3 py-7">
@@ -10,13 +10,11 @@ const FeaturedCard = () => {
             See more
           </button> */}
           <div className="flex flex-row items-center">
-            <GiArtificialIntelligence className="text-3xl me-5" />
-            <p className="text-lg font-bold">AI-Driven Recommendations</p>
+            {/* <GiArtificialIntelligence className="text-3xl me-5" /> */}
+            {icon}
+            <p className="text-lg font-bold">{heading}</p>
           </div>
-          <p className="mt-3">
-            Our advanced AI learns your preferences to deliver the perfect
-            soundtrack, anytime.
-          </p>
+          <p className="mt-3">{text}</p>
         </div>
       </div>
     </BackgroundGradient>
