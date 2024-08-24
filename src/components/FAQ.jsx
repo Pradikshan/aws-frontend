@@ -4,7 +4,9 @@ const FAQ = () => {
   return (
     <div className="grid grid-cols-2 gap-4 mx-8 mt-36 text-white">
       <div className="flex flex-col">
-        <p className="text-4xl font-bold mb-2">Frequently asked questions</p>
+        <p className="text-4xl font-semibold mb-2">
+          Frequently asked questions
+        </p>
         <p className="">
           Can’t find the answer you’re looking for? Reach out to our customer
           support team.
