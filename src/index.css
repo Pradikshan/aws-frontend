@@ -12,5 +12,5 @@ body {
 
 /* Headings */
 .section-heading {
-  @apply text-white text-5xl font-semibold my-16;
+  @apply text-white text-[2.8rem] font-semibold my-16;
 }
