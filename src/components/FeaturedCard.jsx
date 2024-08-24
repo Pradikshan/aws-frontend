@@ -1,5 +1,4 @@
 import { BackgroundGradient } from "./ui/background-gradient";
-import { GiArtificialIntelligence } from "react-icons/gi";
 
 const FeaturedCard = ({ icon, heading, text }) => {
   return (
@@ -10,7 +9,6 @@ const FeaturedCard = ({ icon, heading, text }) => {
             See more
           </button> */}
           <div className="flex flex-row items-center">
-            {/* <GiArtificialIntelligence className="text-3xl me-5" /> */}
             <img src={icon} width={35} alt="feature-icon" className="me-4" />
             <p className="text-lg font-bold">{heading}</p>
           </div>
