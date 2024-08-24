@@ -9,3 +9,8 @@ html {
 body {
   @apply bg-black;
 }
+
+/* Headings */
+.section-heading {
+  @apply text-white text-5xl font-semibold my-16;
+}
