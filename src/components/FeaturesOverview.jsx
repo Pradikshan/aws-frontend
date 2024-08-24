@@ -1,5 +1,4 @@
 import React from "react";
-import FeaturesBox from "./FeaturesBox";
 import FeaturedCard from "./FeaturedCard";
 // import { GiArtificialIntelligence } from "react-icons/gi";
 
