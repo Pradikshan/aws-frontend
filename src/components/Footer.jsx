@@ -27,10 +27,10 @@ const Footer = () => {
       <div>
         <p className="footer-heading">Social media Links</p>
         <div className="flex flex-row">
-          <img src="/public/images/instagram.png" className="footer-sm-icon" />
-          <img src="/public/images/facebook.png" className="footer-sm-icon" />
-          <img src="/public/images/twitter.png" className="footer-sm-icon" />
-          <img src="/public/images/youtube.png" className="footer-sm-icon" />
+          <img src="/images/instagram.png" className="footer-sm-icon" />
+          <img src="/images/facebook.png" className="footer-sm-icon" />
+          <img src="/images/twitter.png" className="footer-sm-icon" />
+          <img src="/images/youtube.png" className="footer-sm-icon" />
         </div>
       </div>
 
