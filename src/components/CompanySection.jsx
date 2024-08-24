@@ -7,17 +7,17 @@ const CompanySection = () => {
         <p className="section-heading">Our Music Partners</p>
         <div className="flex flex-row justify-between">
           <img
-            src="/public/images/universal.jpg"
+            src="/images/universal.jpg"
             alt="company-logo"
             className="w-80 mx-8"
           />
           <img
-            src="/public/images/warner.png"
+            src="/images/warner.png"
             alt="company-logo"
             className="w-80 h-40 mx-8"
           />
           <img
-            src="/public/images/sony.jpg"
+            src="/images/sony.jpg"
             alt="company-logo"
             className="w-60 h-40 mx-8"
           />
