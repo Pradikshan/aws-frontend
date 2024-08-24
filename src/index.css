@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply font-poppins;
+}
+
 body {
   @apply bg-black;
 }
