@@ -1,12 +1,14 @@
 import React from "react";
 import { BackgroundGradient } from "./ui/background-gradient";
+import { CardSpotlight } from "./ui/card-spotlight";
 
 const PricingCard = ({ pricingDetails }) => {
   return (
     <div className="flex h-full">
       <BackgroundGradient className="h-full">
-        <div className="bg-[#162032] text-white rounded-[1.375rem] px-8 py-7 h-full flex flex-col justify-between">
-          <div className="flex flex-col justify-center">
+        <CardSpotlight className="text-white rounded-[1.375rem] px-8 py-7 h-full flex flex-col justify-between">
+          {/* <div className="bg-[#162032] text-white rounded-[1.375rem] px-8 py-7 h-full flex flex-col justify-between"> */}
+          <div className="flex flex-col justify-center z-20">
             <div className="flex flex-row items-center">
               <img
                 src={pricingDetails.icon}
@@ -34,7 +36,8 @@ const PricingCard = ({ pricingDetails }) => {
               {pricingDetails.cta}
             </button>
           </div>
-        </div>
+          {/* </div> */}
+        </CardSpotlight>
       </BackgroundGradient>
     </div>
   );
