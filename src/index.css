@@ -14,3 +14,20 @@ body {
 .section-heading {
   @apply text-white text-[2.8rem] font-semibold my-16;
 }
+
+/* Footer */
+.footer-heading {
+  @apply text-lg font-semibold mb-4;
+}
+
+.footer-sm-icon {
+  @apply w-9 me-4 hover:scale-110 transition-all ease-in-out duration-500;
+}
+
+.footer-link-container {
+  @apply flex flex-col;
+}
+
+.footer-link {
+  @apply my-[0.1rem] text-sm hover:scale-105 transition-all ease-in-out duration-500 hover:font-bold;
+}
