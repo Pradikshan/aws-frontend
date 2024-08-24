@@ -15,7 +15,6 @@ const FeaturesOverview = () => {
         <FeaturesBox />
         <FeaturesBox /> */}
         <FeaturedCard
-          icon={}
           heading={"Personalized Playlists"}
           text={
             "Let our advanced AI curate playlists tailored to your unique musical taste, ensuring every track resonates with you."
