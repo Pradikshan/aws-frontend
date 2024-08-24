@@ -31,3 +31,9 @@ body {
 .footer-link {
   @apply my-[0.1rem] text-sm hover:scale-105 transition-all ease-in-out duration-500 hover:font-bold;
 }
+
+/* Pricing styles */
+
+ul li {
+  @apply my-2;
+}
