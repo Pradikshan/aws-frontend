@@ -37,3 +37,8 @@ body {
 ul li {
   @apply my-2;
 }
+
+/* Features styles */
+.feature-heading {
+  @apply text-[2.8rem] font-semibold mb-5;
+}
