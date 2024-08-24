@@ -6,6 +6,7 @@ import { WavyBackgroundEffect } from "../components/WavyBackgroundEffect";
 import { GoogleGeminiHeroEffect } from "../components/GoogleGeminiHeroEffect";
 import { LampEffect } from "../components/LampEffect";
 import FeaturesOverview from "../components/FeaturesOverview";
+import CompanySection from "../components/CompanySection";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <TypewriterTextEffect />
       <LampEffect />
       <FeaturesOverview />
+      <CompanySection />
     </>
   );
 };
