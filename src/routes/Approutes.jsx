@@ -5,6 +5,7 @@ import Pricing from "../views/Pricing";
 import About from "../views/About";
 import Support from "../views/Support";
 import Artists from "../views/Artists";
+import Albums from "../views/Albums";
 
 export const Approutes = () => {
   return (
@@ -15,6 +16,7 @@ export const Approutes = () => {
       <Route path="/about" element={<About />} />
       <Route path="/support" element={<Support />} />
       <Route path="/artists" element={<Artists />} />
+      <Route path="/albums" element={<Albums />} />
     </Routes>
   );
 };
