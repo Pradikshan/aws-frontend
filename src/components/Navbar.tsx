@@ -42,7 +42,7 @@ function NavbarFunc({ className }: { className?: string }) {
             />
             <ProductItem
               title="View Artists"
-              href="/hello"
+              href="/artists"
               src="/images/artists-cover.jpg"
               description="All the Artists affiliated with DreamStreamer"
             />
