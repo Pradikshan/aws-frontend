@@ -36,7 +36,7 @@ function NavbarFunc({ className }: { className?: string }) {
           <div className="text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
               title="View Albums"
-              href="/"
+              href="/albums"
               src="/images/album-cover.jpg"
               description="All the albums curated by DreamStreamer"
             />
