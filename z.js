@@ -55,7 +55,7 @@ async function getLyrics(songUrl) {
 
 // Main function to get the lyrics of a song
 async function main() {
-  const songQuery = "blinding lights"; // Replace with your desired song query
+  const songQuery = "Venom"; // Replace with your desired song query
   const songUrl = await searchSong(songQuery);
 
   if (songUrl) {
