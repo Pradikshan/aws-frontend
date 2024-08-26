@@ -2,7 +2,7 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "./ui/use-outside-click";
 
-export function ExpandableCardDemo() {
+export function ArtistDetail() {
   const [active, setActive] = useState(null);
   const id = useId();
   const ref = useRef(null);
@@ -40,7 +40,7 @@ export function ExpandableCardDemo() {
       </AnimatePresence>
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0  grid place-items-center z-[100]">
+          <div className="fixed inset-0  grid place-items-center z-[100] ">
             <motion.button
               key={`button-${active.title}-${id}`}
               layout
@@ -123,7 +123,7 @@ export function ExpandableCardDemo() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-4">
+      <ul className="max-w-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-4 my-36">
         {cards.map((card, index) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
