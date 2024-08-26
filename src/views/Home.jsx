@@ -8,6 +8,7 @@ import { LampEffect } from "../components/LampEffect";
 import FeaturesOverview from "../components/FeaturesOverview";
 import CompanySection from "../components/CompanySection";
 import TestimonialSection from "../components/TestimonialSection";
+import { BuiltWithCard } from "../components/BuiltWith";
 
 const Home = () => {
   return (
@@ -19,6 +20,11 @@ const Home = () => {
       <TypewriterTextEffect />
       {/* <LampEffect /> */}
       <FeaturesOverview />
+      <p className="text-white text-[2.8rem] font-semibold text-center mt-36">
+        Built with
+      </p>
+      <BuiltWithCard />
+
       <CompanySection />
       <TestimonialSection />
     </>
