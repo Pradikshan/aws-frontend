@@ -65,7 +65,7 @@ export function AlbumDetail() {
                 <img
                   src={active.src}
                   alt={active.title}
-                  className="absolute bottom-0 left-4 w-32 h-32 object-cover object-top border-4 border-white"
+                  className="absolute bottom-0 left-4 w-32 h-32 object-cover object-top rounded-xl shadow-2xl mb-5"
                 />
                 <div className="ml-40 mb-4 text-white p-4">
                   <h3 className="text-4xl font-bold">{active.title}</h3>
@@ -77,8 +77,7 @@ export function AlbumDetail() {
               </motion.div>
 
               {/* Tracklist */}
-              <div className="p-6">
-                <h4 className="text-lg font-bold mb-4">Tracks</h4>
+              <div className="p-6 text-white bg-slate-850 text-sm">
                 <ul>
                   {active.tracks.map((track, index) => (
                     <li
@@ -162,15 +161,16 @@ export const CloseIcon = () => {
 const cards = [
   {
     description: "Canadian Singer and Songwriter",
-    title: "The Weeknd",
-    src: "https://th.bing.com/th/id/OIP.PMAHNMHv7RSs8o56KwXvhwHaEs?w=289&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-    artist: "The Weeknd",
-    year: "2021",
-    genre: "R&B/Soul",
+    title: "Currents",
+    src: "/images/album art/currents.jpg",
+    artist: "Tame Impala",
+    year: "2015",
+    genre: "Synth-pop",
     tracks: [
-      { name: "Save Your Tears", duration: "3:36" },
-      { name: "Blinding Lights", duration: "3:20" },
-      // Add more tracks as needed
+      { name: "Let It Happen", duration: "7:47" },
+      { name: "Cause I'm A Man", duration: "4:01" },
+      { name: "Eventually", duration: "5:18" },
+      { name: "The Less i Know The Better", duration: "3:36" },
     ],
   },
   {
@@ -183,7 +183,6 @@ const cards = [
     tracks: [
       { name: "Counting Stars", duration: "4:17" },
       { name: "Apologize", duration: "3:04" },
-      // Add more tracks as needed
     ],
   },
 ];
