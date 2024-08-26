@@ -173,15 +173,14 @@ const cards = [
     ],
   },
   {
-    description: "American Pop Rock Band",
-    title: "OneRepublic",
-    src: "https://th.bing.com/th/id/OIP.Wa5sckuGYGZhHphRS9dJcwHaEq?w=266&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-    artist: "OneRepublic",
+    title: "After Hours",
+    src: "/images/album art/after hours.jpg",
+    artist: "The Weeknd",
     year: "2020",
-    genre: "Pop Rock",
+    genre: "Pop",
     tracks: [
-      { name: "Counting Stars", duration: "4:17" },
-      { name: "Apologize", duration: "3:04" },
+      { name: "After Hours", duration: "6:01" },
+      { name: "Blinding Lights", duration: "3:20" },
     ],
   },
 ];
