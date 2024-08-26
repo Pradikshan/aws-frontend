@@ -93,7 +93,7 @@ export function ArtistDetail() {
                     </motion.p>
                   </div>
 
-                  <motion.a
+                  {/* <motion.a
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -103,7 +103,7 @@ export function ArtistDetail() {
                     className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
                   >
                     {active.ctaText}
-                  </motion.a>
+                  </motion.a> */}
                 </div>
                 <div className="pt-4 relative px-4">
                   <motion.div
@@ -123,7 +123,8 @@ export function ArtistDetail() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="grid grid-cols-1 md:grid-cols-4 items-start gap-4 my-36">
+
+      <ul className="grid grid-cols-1 md:grid-cols-4 items-start gap-4 my-36 mx-8">
         {cards.map((card, index) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
@@ -198,11 +199,10 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    description: "Lana Del Rey",
-    title: "Summertime Sadness",
-    src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
+    description: "",
+    title: "The Weeknd",
+    src: "https://th.bing.com/th/id/OIP.PMAHNMHv7RSs8o56KwXvhwHaEs?w=289&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+
     content: () => {
       return (
         <p>
@@ -220,71 +220,71 @@ const cards = [
       );
     },
   },
-  {
-    description: "Babbu Maan",
-    title: "Mitran Di Chhatri",
-    src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Babu Maan, a legendary Punjabi singer, is renowned for his soulful
-          voice and profound lyrics that resonate deeply with his audience. Born
-          in the village of Khant Maanpur in Punjab, India, he has become a
-          cultural icon in the Punjabi music industry. <br /> <br />
-          His songs often reflect the struggles and triumphs of everyday life,
-          capturing the essence of Punjabi culture and traditions. With a career
-          spanning over two decades, Babu Maan has released numerous hit albums
-          and singles that have garnered him a massive fan following both in
-          India and abroad.
-        </p>
-      );
-    },
-  },
+  //   {
+  //     description: "Babbu Maan",
+  //     title: "Mitran Di Chhatri",
+  //     src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+  //     ctaText: "Visit",
+  //     ctaLink: "https://ui.aceternity.com/templates",
+  //     content: () => {
+  //       return (
+  //         <p>
+  //           Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+  //           voice and profound lyrics that resonate deeply with his audience. Born
+  //           in the village of Khant Maanpur in Punjab, India, he has become a
+  //           cultural icon in the Punjabi music industry. <br /> <br />
+  //           His songs often reflect the struggles and triumphs of everyday life,
+  //           capturing the essence of Punjabi culture and traditions. With a career
+  //           spanning over two decades, Babu Maan has released numerous hit albums
+  //           and singles that have garnered him a massive fan following both in
+  //           India and abroad.
+  //         </p>
+  //       );
+  //     },
+  //   },
 
-  {
-    description: "Metallica",
-    title: "For Whom The Bell Tolls",
-    src: "https://assets.aceternity.com/demos/metallica.jpeg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Metallica, an iconic American heavy metal band, is renowned for their
-          powerful sound and intense performances that resonate deeply with
-          their audience. Formed in Los Angeles, California, they have become a
-          cultural icon in the heavy metal music industry. <br /> <br />
-          Their songs often reflect themes of aggression, social issues, and
-          personal struggles, capturing the essence of the heavy metal genre.
-          With a career spanning over four decades, Metallica has released
-          numerous hit albums and singles that have garnered them a massive fan
-          following both in the United States and abroad.
-        </p>
-      );
-    },
-  },
-  {
-    description: "Lord Himesh",
-    title: "Aap Ka Suroor",
-    src: "https://assets.aceternity.com/demos/aap-ka-suroor.jpeg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Himesh Reshammiya, a renowned Indian music composer, singer, and
-          actor, is celebrated for his distinctive voice and innovative
-          compositions. Born in Mumbai, India, he has become a prominent figure
-          in the Bollywood music industry. <br /> <br />
-          His songs often feature a blend of contemporary and traditional Indian
-          music, capturing the essence of modern Bollywood soundtracks. With a
-          career spanning over two decades, Himesh Reshammiya has released
-          numerous hit albums and singles that have garnered him a massive fan
-          following both in India and abroad.
-        </p>
-      );
-    },
-  },
+  //   {
+  //     description: "Metallica",
+  //     title: "For Whom The Bell Tolls",
+  //     src: "https://assets.aceternity.com/demos/metallica.jpeg",
+  //     ctaText: "Visit",
+  //     ctaLink: "https://ui.aceternity.com/templates",
+  //     content: () => {
+  //       return (
+  //         <p>
+  //           Metallica, an iconic American heavy metal band, is renowned for their
+  //           powerful sound and intense performances that resonate deeply with
+  //           their audience. Formed in Los Angeles, California, they have become a
+  //           cultural icon in the heavy metal music industry. <br /> <br />
+  //           Their songs often reflect themes of aggression, social issues, and
+  //           personal struggles, capturing the essence of the heavy metal genre.
+  //           With a career spanning over four decades, Metallica has released
+  //           numerous hit albums and singles that have garnered them a massive fan
+  //           following both in the United States and abroad.
+  //         </p>
+  //       );
+  //     },
+  //   },
+  //   {
+  //     description: "Lord Himesh",
+  //     title: "Aap Ka Suroor",
+  //     src: "https://assets.aceternity.com/demos/aap-ka-suroor.jpeg",
+  //     ctaText: "Visit",
+  //     ctaLink: "https://ui.aceternity.com/templates",
+  //     content: () => {
+  //       return (
+  //         <p>
+  //           Himesh Reshammiya, a renowned Indian music composer, singer, and
+  //           actor, is celebrated for his distinctive voice and innovative
+  //           compositions. Born in Mumbai, India, he has become a prominent figure
+  //           in the Bollywood music industry. <br /> <br />
+  //           His songs often feature a blend of contemporary and traditional Indian
+  //           music, capturing the essence of modern Bollywood soundtracks. With a
+  //           career spanning over two decades, Himesh Reshammiya has released
+  //           numerous hit albums and singles that have garnered him a massive fan
+  //           following both in India and abroad.
+  //         </p>
+  //       );
+  //     },
+  //   },
 ];
