@@ -1,4 +1,5 @@
 import React from "react";
+import { SongList } from "../components/SongList";
 
 const Songs = () => {
   return (
@@ -6,6 +7,7 @@ const Songs = () => {
       <p className="text-white text-[2.8rem] font-semibold text-center">
         Songs Curated By DreamStreamer
       </p>
+      <SongList />
     </div>
   );
 };
