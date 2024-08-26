@@ -58,7 +58,7 @@ export function AlbumDetail() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-6xl mx-auto bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden bg-gradient-to-tr from-violet-500 from-10% via-red-500 via-40% to-orange-300 to-90%"
+              className="w-full max-w-6xl mx-auto bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden bg-gradient-to-r from-fuchsia-600  via-red-500 to-pink-600"
             >
               {/* Header with Album Art and Details */}
               <motion.div className="relative h-80 flex items-end ">
@@ -181,6 +181,17 @@ const cards = [
     tracks: [
       { name: "After Hours", duration: "6:01" },
       { name: "Blinding Lights", duration: "3:20" },
+    ],
+  },
+  {
+    title: "Top Gun Maverick (Original Motion Picture Soundtrack)",
+    src: "/images/album art/mav.jpg",
+    artist: "Multiple",
+    year: "2022",
+    genre: "Pop",
+    tracks: [
+      { name: "I Ain't Worried", duration: "2:28" },
+      { name: "Danger Zone", duration: "3:36" },
     ],
   },
 ];
