@@ -58,10 +58,10 @@ export function AlbumDetail() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-6xl mx-auto bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-6xl mx-auto bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden bg-gradient-to-tr from-violet-500 from-10% via-red-500 via-40% to-orange-300 to-90%"
             >
               {/* Header with Album Art and Details */}
-              <motion.div className="relative h-80 flex items-end bg-gradient-to-tr from-violet-500 to-orange-300">
+              <motion.div className="relative h-80 flex items-end ">
                 <img
                   src={active.src}
                   alt={active.title}
