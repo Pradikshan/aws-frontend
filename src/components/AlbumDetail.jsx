@@ -41,7 +41,7 @@ export function AlbumDetail() {
 
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0 overflow-y-auto grid place-items-center z-[100] bg-black bg-opacity-80 p-4">
+          <div className="fixed inset-0 overflow-y-auto z-[100] bg-black bg-opacity-80 p-4">
             <motion.button
               key={`button-${active.title}-${id}`}
               layout
@@ -58,20 +58,17 @@ export function AlbumDetail() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-3xl bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-6xl mx-auto bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
             >
               {/* Header with Album Art and Details */}
-              <motion.div
-                layoutId={`image-${active.title}-${id}`}
-                className="relative"
-              >
+              <motion.div className="relative h-80 flex items-end bg-gradient-to-tr from-violet-500 to-orange-300">
                 <img
                   src={active.src}
                   alt={active.title}
-                  className="w-full h-80 object-cover object-top"
+                  className="absolute bottom-0 left-4 w-32 h-32 object-cover object-top border-4 border-white"
                 />
-                <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black via-transparent to-transparent text-white">
-                  <h3 className="text-2xl font-bold">{active.title}</h3>
+                <div className="ml-40 mb-4 text-white p-4">
+                  <h3 className="text-4xl font-bold">{active.title}</h3>
                   <p className="text-lg">{active.artist}</p>
                   <p className="text-sm">
                     {active.year} • {active.genre}
