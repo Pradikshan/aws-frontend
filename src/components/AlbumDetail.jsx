@@ -118,12 +118,12 @@ export function AlbumDetail() {
                 >
                   {card.title}
                 </motion.h3>
-                <motion.p
+                {/* <motion.p
                   layoutId={`description-${card.description}-${id}`}
                   className="text-neutral-600 dark:text-neutral-400 text-center md:text-left text-base"
                 >
                   {card.description}
-                </motion.p>
+                </motion.p> */}
               </div>
             </div>
           </motion.div>
@@ -160,7 +160,6 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    description: "Canadian Singer and Songwriter",
     title: "Currents",
     src: "/images/album art/currents.jpg",
     artist: "Tame Impala",
