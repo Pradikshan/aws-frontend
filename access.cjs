@@ -1,25 +1,17 @@
-const fetch = require("node-fetch");
+const url =
+  "https://sridurgayadav-chart-lyrics-v1.p.rapidapi.com/apiv1.asmx/SearchLyricDirect?artist=michael%20jackson&song=bad";
+const options = {
+  method: "GET",
+  headers: {
+    "x-rapidapi-key": "04045b0d0bmsh67ee5f9a8b51c5ap1d9d92jsn3d70e144425f",
+    "x-rapidapi-host": "sridurgayadav-chart-lyrics-v1.p.rapidapi.com",
+  },
+};
 
-async function getAccessToken() {
-  const clientId = "109477dcf4ec450ea9d2b704be9a80fa";
-  const clientSecret = "62587695cc844317aa6f63ac494a750c";
-
-  const response = await fetch("https://accounts.spotify.com/api/token", {
-    method: "POST",
-    headers: {
-      Authorization:
-        "Basic " +
-        Buffer.from(clientId + ":" + clientSecret).toString("base64"),
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: "grant_type=client_credentials",
-  });
-
-  const data = await response.json();
-  console.log("Access Token:", data.access_token);
-  return data.access_token;
+try {
+  const response = await fetch(url, options);
+  const result = await response.text();
+  console.log(result);
+} catch (error) {
+  console.error(error);
 }
-
-getAccessToken().then((token) => {
-  console.log(token);
-});
