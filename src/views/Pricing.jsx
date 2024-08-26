@@ -78,7 +78,7 @@ const Pricing = () => {
         "Studio-quality, lossless audio",
         "Priority customer support",
         "Exclusive Hi-Fi playlists",
-        "Invitations to live listening sessions with artists",
+        "Invitations to live listening sessions with artists affiliated with DreamStreamer",
       ],
       cta: "Upgrade to Hi-Fi",
     },
