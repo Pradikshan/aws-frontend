@@ -26,7 +26,7 @@ const Features = () => {
       <FeatureContainer
         child2={
           <img
-            src="/images/features-AI.jpg"
+            src="/images/features-music.jpg"
             className="w-fit"
             alt="feature-img"
           />
@@ -42,7 +42,7 @@ const Features = () => {
       <FeatureContainer
         child1={
           <img
-            src="/images/features-AI.jpg"
+            src="/images/features-cross2.jpg"
             className="w-fit"
             alt="feature-img"
           />
@@ -56,14 +56,14 @@ const Features = () => {
       />
 
       <FeatureContainer
-        child1={
+        child2={
           <img
-            src="/images/features-AI.jpg"
+            src="/images/features-offline.jpg"
             className="w-fit"
             alt="feature-img"
           />
         }
-        child2={
+        child1={
           <div className="mx-5">
             <p className="feature-heading">Offline Listening</p>
             <p>
@@ -77,7 +77,7 @@ const Features = () => {
       <FeatureContainer
         child1={
           <img
-            src="/images/features-AI.jpg"
+            src="/images/features-ad.jpg"
             className="w-fit"
             alt="feature-img"
           />
