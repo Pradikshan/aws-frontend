@@ -404,7 +404,7 @@ const cards = [
   },
 
   {
-    description: "American Rock Band",
+    description: "Rock Band",
     title: "Green Day",
     src: "https://th.bing.com/th/id/OIP.j-ZTuxCnsJDlkB7ds1wW_wHaE7?w=258&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
 
