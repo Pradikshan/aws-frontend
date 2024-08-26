@@ -48,7 +48,7 @@ function NavbarFunc({ className }: { className?: string }) {
             />
             <ProductItem
               title="View Songs"
-              href="/"
+              href="/songs"
               src="/images/song-cover.jpg"
               description="All the songs curated by DreamStreamer"
             />
