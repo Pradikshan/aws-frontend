@@ -124,7 +124,7 @@ export function ArtistDetail() {
         ) : null}
       </AnimatePresence>
 
-      <ul className="grid grid-cols-1 md:grid-cols-4 items-start gap-4 my-36 mx-8">
+      <ul className="grid grid-cols-1 md:grid-cols-4 items-start gap-4 my-10 mx-8">
         {cards.map((card, index) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
