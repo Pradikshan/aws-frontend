@@ -1,5 +1,6 @@
 import React from "react";
 import { SongList } from "../components/SongList";
+import { SongDetails } from "../components/SongDetails";
 
 const Songs = () => {
   return (
@@ -7,7 +8,8 @@ const Songs = () => {
       <p className="text-white text-[2.8rem] font-semibold text-center">
         Songs Curated By DreamStreamer
       </p>
-      <SongList />
+      {/* <SongList /> */}
+      <SongDetails />
     </div>
   );
 };
