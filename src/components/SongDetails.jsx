@@ -86,10 +86,10 @@ export function SongDetails() {
                       {active.title}
                     </motion.h3>
                     <motion.p
-                      layoutId={`description-${active.description}-${id}`}
+                      layoutId={`artist-${active.artist}-${id}`}
                       className="text-neutral-600 dark:text-neutral-400"
                     >
-                      {active.description}
+                      {active.artist}
                     </motion.p>
                   </div>
                 </div>
@@ -140,16 +140,16 @@ export function SongDetails() {
                   {card.title}
                 </motion.h3>
                 <motion.p
-                  layoutId={`description-${card.description}-${id}`}
+                  layoutId={`artist-${card.artist}-${id}`}
                   className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
                 >
-                  {card.description}
+                  {card.artist}
                 </motion.p>
               </div>
             </div>
             <motion.div
               layoutId={`length-${card.title}-${id}`}
-              className="text-sm font-medium text-black mt-4 md:mt-0"
+              className="text-sm font-medium text-white mt-4 md:mt-0"
             >
               {card.length}
             </motion.div>
@@ -195,7 +195,7 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    description: "Lana Del Rey",
+    artist: "Lana Del Rey",
     title: "Summertime Sadness",
     src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
     length: "4:25",
@@ -203,7 +203,7 @@ const cards = [
     album: "Born to Die",
   },
   {
-    description: "Babbu Maan",
+    artist: "Babbu Maan",
     title: "Mitran Di Chhatri",
     src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
     length: "3:30",
