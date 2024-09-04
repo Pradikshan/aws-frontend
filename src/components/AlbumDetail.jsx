@@ -1,11 +1,21 @@
+//workinf
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "./ui/use-outside-click";
 
+function formatDuration(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainderSeconds = seconds % 60;
+  return `${minutes}:${remainderSeconds.toString().padStart(2, "0")}`;
+}
+
 export function AlbumDetail() {
   const [active, setActive] = useState(null);
+  const [albums, setAlbums] = useState([]); // State to store the list of albums
   const id = useId();
   const ref = useRef(null);
+
+  useOutsideClick(ref, () => setActive(null));
 
   useEffect(() => {
     function onKeyDown(event) {
@@ -24,7 +34,34 @@ export function AlbumDetail() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [active]);
 
-  useOutsideClick(ref, () => setActive(null));
+  useEffect(() => {
+    // Fetch the list of albums from your API
+    async function fetchAlbums() {
+      try {
+        const response = await fetch(
+          "https://vud6lh3r68.execute-api.eu-west-1.amazonaws.com/dev/get-album"
+        );
+        const data = await response.json();
+        setAlbums(data);
+      } catch (error) {
+        console.error("Error fetching albums:", error);
+      }
+    }
+
+    fetchAlbums();
+  }, []);
+
+  const handleAlbumClick = async (album) => {
+    try {
+      const response = await fetch(
+        `https://k9wnoczy6f.execute-api.eu-west-1.amazonaws.com/dev/get-songs?albumName=${album.albumName}`
+      );
+      const songs = await response.json();
+      setActive({ ...album, tracks: songs });
+    } catch (error) {
+      console.error("Error fetching songs:", error);
+    }
+  };
 
   return (
     <>
@@ -43,7 +80,7 @@ export function AlbumDetail() {
         {active && typeof active === "object" ? (
           <div className="fixed inset-0 overflow-y-auto z-[100] bg-black bg-opacity-80 p-4">
             <motion.button
-              key={`button-${active.title}-${id}`}
+              key={`button-${active.albumName}-${id}`}
               layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -56,22 +93,22 @@ export function AlbumDetail() {
             </motion.button>
 
             <motion.div
-              layoutId={`card-${active.title}-${id}`}
+              layoutId={`card-${active.albumName}-${id}`}
               ref={ref}
               className="w-full max-w-6xl mx-auto bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden bg-gradient-to-r from-fuchsia-600  via-red-500 to-pink-600"
             >
               {/* Header with Album Art and Details */}
               <motion.div className="relative h-80 flex items-end ">
                 <img
-                  src={active.src}
-                  alt={active.title}
+                  src={active.albumArtUrl}
+                  alt={active.albumName}
                   className="absolute bottom-0 left-4 w-32 h-32 object-cover object-top rounded-xl shadow-2xl mb-5"
                 />
                 <div className="ml-40 mb-4 text-white p-4">
-                  <h3 className="text-4xl font-bold">{active.title}</h3>
-                  <p className="text-lg">{active.artist}</p>
+                  <h3 className="text-4xl font-bold">{active.albumName}</h3>
+                  <p className="text-lg">{active.artistName}</p>
                   <p className="text-sm">
-                    {active.year} • {active.genre}
+                    {active.albumYear} • {active.genre}
                   </p>
                 </div>
               </motion.div>
@@ -81,11 +118,11 @@ export function AlbumDetail() {
                 <ul>
                   {active.tracks.map((track, index) => (
                     <li
-                      key={index}
+                      key={`${track.songName}-${index}`}
                       className="flex justify-between py-2 border-b border-neutral-200"
                     >
-                      <span>{track.name}</span>
-                      <span>{track.duration}</span>
+                      <span>{track.songName}</span>
+                      <span>{formatDuration(track.trackLength)}</span>
                     </li>
                   ))}
                 </ul>
@@ -96,34 +133,28 @@ export function AlbumDetail() {
       </AnimatePresence>
 
       <ul className="grid grid-cols-1 md:grid-cols-4 items-start gap-4 my-10 mx-8">
-        {cards.map((card) => (
+        {albums.map((album) => (
           <motion.div
-            layoutId={`card-${card.title}-${id}`}
-            key={card.title}
-            onClick={() => setActive(card)}
+            layoutId={`card-${album.albumName}-${id}`}
+            key={album.albumName}
+            onClick={() => handleAlbumClick(album)}
             className="p-4 flex flex-col hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
           >
             <div className="flex gap-4 flex-col w-full">
-              <motion.div layoutId={`image-${card.title}-${id}`}>
+              <motion.div layoutId={`image-${album.albumName}-${id}`}>
                 <img
-                  src={card.src}
-                  alt={card.title}
+                  src={album.albumArtUrl}
+                  alt={album.albumName}
                   className="h-60 w-full rounded-lg object-cover object-top"
                 />
               </motion.div>
               <div className="flex justify-center items-center flex-col">
                 <motion.h3
-                  layoutId={`title-${card.title}-${id}`}
+                  layoutId={`title-${album.albumName}-${id}`}
                   className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base"
                 >
-                  {card.title}
+                  {album.albumName}
                 </motion.h3>
-                {/* <motion.p
-                  layoutId={`description-${card.description}-${id}`}
-                  className="text-neutral-600 dark:text-neutral-400 text-center md:text-left text-base"
-                >
-                  {card.description}
-                </motion.p> */}
               </div>
             </div>
           </motion.div>
@@ -157,41 +188,3 @@ export const CloseIcon = () => {
     </motion.svg>
   );
 };
-
-const cards = [
-  {
-    title: "Currents",
-    src: "/images/album art/currents.jpg",
-    artist: "Tame Impala",
-    year: "2015",
-    genre: "Synth-pop",
-    tracks: [
-      { name: "Let It Happen", duration: "7:47" },
-      { name: "Cause I'm A Man", duration: "4:01" },
-      { name: "Eventually", duration: "5:18" },
-      { name: "The Less i Know The Better", duration: "3:36" },
-    ],
-  },
-  {
-    title: "After Hours",
-    src: "/images/album art/after hours.jpg",
-    artist: "The Weeknd",
-    year: "2020",
-    genre: "Pop",
-    tracks: [
-      { name: "After Hours", duration: "6:01" },
-      { name: "Blinding Lights", duration: "3:20" },
-    ],
-  },
-  {
-    title: "Top Gun Maverick (Original Motion Picture Soundtrack)",
-    src: "/images/album art/mav.jpg",
-    artist: "Multiple",
-    year: "2022",
-    genre: "Pop",
-    tracks: [
-      { name: "I Ain't Worried", duration: "2:28" },
-      { name: "Danger Zone", duration: "3:36" },
-    ],
-  },
-];
