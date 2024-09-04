@@ -3,9 +3,33 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "./ui/use-outside-click";
 
 export function SongDetails() {
+  const [songs, setSongs] = useState([]);
   const [active, setActive] = useState(null);
   const ref = useRef(null);
   const id = useId();
+
+  useEffect(() => {
+    const fetchSongs = async () => {
+      const response = await fetch(
+        "https://k9wnoczy6f.execute-api.eu-west-1.amazonaws.com/dev/get-song"
+      );
+      const songsData = await response.json();
+
+      const songsWithAlbumArt = await Promise.all(
+        songsData.map(async (song) => {
+          const albumCoverResponse = await fetch(
+            `https://vud6lh3r68.execute-api.eu-west-1.amazonaws.com/dev/get-album-cover?albumName=${song.albumName}`
+          );
+          const albumCoverData = await albumCoverResponse.json();
+          return { ...song, albumArtUrl: albumCoverData.albumArtUrl };
+        })
+      );
+
+      setSongs(songsWithAlbumArt);
+    };
+
+    fetchSongs();
+  }, []);
 
   useEffect(() => {
     function onKeyDown(event) {
@@ -70,7 +94,7 @@ export function SongDetails() {
                 <img
                   width={200}
                   height={200}
-                  src={active.src}
+                  src={active.albumArtUrl}
                   alt={active.title}
                   className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
                 />
@@ -83,13 +107,13 @@ export function SongDetails() {
                       layoutId={`title-${active.title}-${id}`}
                       className="font-bold text-neutral-700 dark:text-neutral-200"
                     >
-                      {active.title}
+                      {active.songName}
                     </motion.h3>
                     <motion.p
-                      layoutId={`artist-${active.artist}-${id}`}
+                      layoutId={`artist-${active.artistName}-${id}`}
                       className="text-neutral-600 dark:text-neutral-400"
                     >
-                      {active.artist}
+                      {active.artistName}
                     </motion.p>
                   </div>
                 </div>
@@ -105,8 +129,18 @@ export function SongDetails() {
                       <strong>Genre:</strong> {active.genre}
                     </p>
                     <p>
-                      <strong>Album:</strong> {active.album}
+                      <strong>Album:</strong> {active.albumName}
                     </p>
+                    <p>
+                      <strong>Year:</strong> {active.songYear}
+                    </p>
+                    {/* <p>
+                      <strong>Track Length:</strong> {active.trackLength}
+                    </p> */}
+                    <audio controls>
+                      <source src={active.songFileUrl} type="audio/mpeg" />
+                      Your browser does not support the audio element.
+                    </audio>
                   </motion.div>
                 </div>
               </div>
@@ -115,44 +149,49 @@ export function SongDetails() {
         ) : null}
       </AnimatePresence>
       <ul className="w-[90%] mx-auto gap-4">
-        {cards.map((card, index) => (
+        {songs.map((song, index) => (
           <motion.div
-            layoutId={`card-${card.title}-${id}`}
-            key={`card-${card.title}-${id}`}
-            onClick={() => setActive(card)}
+            layoutId={`card-${song.songName}-${id}`}
+            key={`card-${song.songName}-${id}`}
+            onClick={() => setActive(song)}
             className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer my-3 bg-slate-800 border-2 border-black"
           >
             <div className="flex gap-4 flex-col md:flex-row">
-              <motion.div layoutId={`image-${card.title}-${id}`}>
+              <motion.div layoutId={`image-${song.songName}-${id}`}>
                 <img
                   width={100}
                   height={100}
-                  src={card.src}
-                  alt={card.title}
+                  src={song.albumArtUrl}
+                  alt={song.songName}
                   className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
                 />
               </motion.div>
               <div className="">
                 <motion.h3
-                  layoutId={`title-${card.title}-${id}`}
+                  layoutId={`title-${song.songName}-${id}`}
                   className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left"
                 >
-                  {card.title}
+                  {song.songName}
                 </motion.h3>
                 <motion.p
-                  layoutId={`artist-${card.artist}-${id}`}
+                  layoutId={`artist-${song.artistName}-${id}`}
                   className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
                 >
-                  {card.artist}
+                  {song.artistName}
                 </motion.p>
               </div>
             </div>
-            <motion.div
-              layoutId={`length-${card.title}-${id}`}
+            <motion.div>
+              <button className="p-3 w-36 font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-white">
+                Play
+              </button>
+            </motion.div>
+            {/* <motion.div
+              layoutId={`length-${song.songName}-${id}`}
               className="text-sm font-medium text-white mt-4 md:mt-0"
             >
-              {card.length}
-            </motion.div>
+              {song.trackLength}
+            </motion.div> */}
           </motion.div>
         ))}
       </ul>
@@ -192,22 +231,3 @@ export const CloseIcon = () => {
     </motion.svg>
   );
 };
-
-const cards = [
-  {
-    artist: "Lana Del Rey",
-    title: "Summertime Sadness",
-    src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-    length: "4:25",
-    genre: "Indie Pop",
-    album: "Born to Die",
-  },
-  {
-    artist: "Babbu Maan",
-    title: "Mitran Di Chhatri",
-    src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
-    length: "3:30",
-    genre: "Punjabi",
-    album: "Pyaas",
-  },
-];
