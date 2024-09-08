@@ -3,8 +3,8 @@ import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 import { CognitoUserPool } from "amazon-cognito-identity-js";
 
 const poolData = {
-  UserPoolId: "YOUR_USER_POOL_ID", // Replace with your Cognito User Pool ID
-  ClientId: "YOUR_APP_CLIENT_ID", // Replace with your Cognito App Client ID
+  UserPoolId: "eu-west-1_M6MvynQRS", // Replace with your Cognito User Pool ID
+  ClientId: "6hep62fn6hsvjp1526vd9u1pd8", // Replace with your Cognito App Client ID
 };
 const userPool = new CognitoUserPool(poolData);
 
@@ -41,7 +41,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container text-white">
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <div className="form-group">
