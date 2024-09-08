@@ -5,6 +5,7 @@ import { useOutsideClick } from "./ui/use-outside-click";
 export function SongDetails() {
   const [songs, setSongs] = useState([]);
   const [active, setActive] = useState(null);
+  // const [activeSong, setActiveSong]
   const ref = useRef(null);
   const id = useId();
 
@@ -18,7 +19,7 @@ export function SongDetails() {
       const songsWithAlbumArt = await Promise.all(
         songsData.map(async (song) => {
           const albumCoverResponse = await fetch(
-            `https://vud6lh3r68.execute-api.eu-west-1.amazonaws.com/dev/get-album-cover?albumName=${song.albumName}`
+            `https://vud6lh3r68.execute-api.eu-west-1.amazonaws.com/dev/get-album-cover?albumId=${song.albumId}`
           );
           const albumCoverData = await albumCoverResponse.json();
           return { ...song, albumArtUrl: albumCoverData.albumArtUrl };
@@ -49,6 +50,48 @@ export function SongDetails() {
   }, [active]);
 
   useOutsideClick(ref, () => setActive(null));
+
+  const handleSongClick = async (song) => {
+    setActive(song);
+
+    const payload = {
+      album_id: song.albumId,
+      song_id: song.songId,
+      album_name: song.albumName,
+      song_name: song.songName,
+      genre: song.genre,
+      artist_name: song.artistName,
+      track_length: song.trackLength,
+    };
+
+    try {
+      console.log("Payload", JSON.stringify(payload));
+      const response = await fetch(
+        "https://dfg5xvb41m.execute-api.eu-west-1.amazonaws.com/dev/update-engagement",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (response.ok) {
+        console.log("Engagement updated successfully!");
+      } else {
+        console.error("Failed to update engagement.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  function formatDuration(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainderSeconds = seconds % 60;
+    return `${minutes}:${remainderSeconds.toString().padStart(2, "0")}`;
+  }
 
   return (
     <>
@@ -102,7 +145,7 @@ export function SongDetails() {
 
               <div>
                 <div className="flex justify-between items-start p-4">
-                  <div className="">
+                  <div>
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
                       className="font-bold text-neutral-700 dark:text-neutral-200"
@@ -153,7 +196,7 @@ export function SongDetails() {
           <motion.div
             layoutId={`card-${song.songName}-${id}`}
             key={`card-${song.songName}-${id}`}
-            onClick={() => setActive(song)}
+            onClick={() => handleSongClick(song)}
             className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer my-3 bg-slate-800 border-2 border-black"
           >
             <div className="flex gap-4 flex-col md:flex-row">
@@ -178,6 +221,12 @@ export function SongDetails() {
                   className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
                 >
                   {song.artistName}
+                </motion.p>
+                <motion.p
+                  layoutId={`artist-${song.trackLength}-${id}`}
+                  className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
+                >
+                  {formatDuration(song.trackLength)}
                 </motion.p>
               </div>
             </div>
