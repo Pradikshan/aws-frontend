@@ -16,6 +16,8 @@
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.5.0",
     "@types/three": "^0.167.2",
+    "amazon-cognito-identity-js": "^6.3.12",
+    "aws-sdk": "^2.1691.0",
     "axios": "^1.7.5",
     "cheerio": "^1.0.0",
     "clsx": "^2.1.1",
