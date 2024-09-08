@@ -7,6 +7,8 @@ import Support from "../views/Support";
 import Artists from "../views/Artists";
 import Albums from "../views/Albums";
 import Songs from "../views/Songs";
+import Login from "../views/Login";
+import SignUp from "../views/SignUp";
 
 export const Approutes = () => {
   return (
@@ -19,6 +21,8 @@ export const Approutes = () => {
       <Route path="/artists" element={<Artists />} />
       <Route path="/albums" element={<Albums />} />
       <Route path="/songs" element={<Songs />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
   );
 };
