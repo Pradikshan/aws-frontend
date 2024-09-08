@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
+import { Button } from "./ui/moving-border";
 import { cn } from "../utils/cn.ts";
 
 export function Navbar() {
@@ -67,6 +68,12 @@ function NavbarFunc({ className }: { className?: string }) {
             <HoveredLink href="/support">Support</HoveredLink>
           </div>
         </MenuItem>
+        {/* <Button
+          borderRadius="1.75rem"
+          className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+        >
+          Borders are cool
+        </Button> */}
       </Menu>
     </div>
   );
