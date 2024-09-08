@@ -1,23 +1,34 @@
 import FeaturedCard from "./components/FeaturedCard";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Link, BrowserRouter as Router } from "react-router-dom";
 import { Approutes } from "./routes/Approutes";
 import Home from "./views/Home";
 import { Button } from "./components/ui/moving-border";
 import { Navbar } from "./components/Navbar";
 import Footer from "./components/Footer";
 
+import { Buffer } from "buffer";
+import process from "process";
+
+// Assign to window to make these globals available
+window.Buffer = Buffer;
+window.process = process;
+window.global = window;
+
 function App() {
   return (
     <Router>
       <>
         <div className="fixed top-0 right-0 mt-5 mx-5">
-          <button className="p-4 text-white font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm">
-            Sign Up
-          </button>
-
-          <button className="p-4 text-white font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm">
-            Log In
-          </button>
+          <Link to={"/signup"}>
+            <button className="p-4 text-white font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm">
+              Sign Up
+            </button>
+          </Link>
+          <Link to={"/login"}>
+            <button className="p-4 text-white font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm">
+              Log In
+            </button>
+          </Link>
         </div>
         <Navbar />
         <Approutes />
