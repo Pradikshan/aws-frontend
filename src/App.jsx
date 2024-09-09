@@ -2,9 +2,10 @@ import FeaturedCard from "./components/FeaturedCard";
 import { Link, BrowserRouter as Router } from "react-router-dom";
 import { Approutes } from "./routes/Approutes";
 import Home from "./views/Home";
-import { Button } from "./components/ui/moving-border";
 import { Navbar } from "./components/Navbar";
 import Footer from "./components/Footer";
+import { AuthProvider, AuthContext } from "./AuthContext";
+import { useContext } from "react";
 
 import { Buffer } from "buffer";
 import process from "process";
@@ -16,25 +17,47 @@ window.global = window;
 
 function App() {
   return (
-    <Router>
-      <>
-        <div className="fixed top-0 right-0 mt-5 mx-5">
-          <Link to={"/signup"}>
-            <button className="p-4 text-white font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm">
-              Sign Up
-            </button>
-          </Link>
-          <Link to={"/login"}>
-            <button className="p-4 text-white font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm">
-              Log In
-            </button>
-          </Link>
-        </div>
-        <Navbar />
-        <Approutes />
-        <Footer />
-      </>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <>
+          <div className="fixed top-0 right-0 mt-5 mx-5">
+            <AuthButtons />
+          </div>
+          <Navbar />
+          <Approutes />
+          <Footer />
+        </>
+      </Router>
+    </AuthProvider>
+  );
+}
+
+function AuthButtons() {
+  const { user, logout } = useContext(AuthContext);
+
+  return user ? (
+    <div className="flex items-center">
+      <span className="text-white mr-4">{user.getUsername()}</span>
+      <button
+        onClick={logout}
+        className="p-4 text-white font-semibold bg-gradient-to-r from-red-500 to-orange-600 hover:bg-gradient-to-r hover:from-red-600 hover:to-orange-700 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm"
+      >
+        Log Out
+      </button>
+    </div>
+  ) : (
+    <>
+      <Link to={"/signup"}>
+        <button className="p-4 text-white font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm">
+          Sign Up
+        </button>
+      </Link>
+      <Link to={"/login"}>
+        <button className="p-4 text-white font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm">
+          Log In
+        </button>
+      </Link>
+    </>
   );
 }
 
