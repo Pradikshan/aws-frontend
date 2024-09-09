@@ -4,7 +4,7 @@ import { Approutes } from "./routes/Approutes";
 import Home from "./views/Home";
 import { Navbar } from "./components/Navbar";
 import Footer from "./components/Footer";
-import { AuthProvider, AuthContext } from "./AuthContext";
+import { AuthProvider, AuthContext } from "./AuthContext"; // Import AuthProvider
 import { useContext } from "react";
 
 import { Buffer } from "buffer";
@@ -21,11 +21,12 @@ function App() {
       <Router>
         <>
           <div className="fixed top-0 right-0 mt-5 mx-5">
-            <AuthButtons />
+            <AuthButtons />{" "}
+            {/* Handles display of Log In, Sign Up, or Log Out */}
           </div>
-          <Navbar />
-          <Approutes />
-          <Footer />
+          <Navbar /> {/* Your navigation component */}
+          <Approutes /> {/* Your app routes */}
+          <Footer /> {/* Your footer */}
         </>
       </Router>
     </AuthProvider>
@@ -33,11 +34,12 @@ function App() {
 }
 
 function AuthButtons() {
-  const { user, logout } = useContext(AuthContext);
+  const { user, email, logout } = useContext(AuthContext); // Access user, email, and logout
 
   return user ? (
     <div className="flex items-center">
-      <span className="text-white mr-4">{user.getUsername()}</span>
+      <span className="text-white mr-4">{email}</span>{" "}
+      {/* Display user email */}
       <button
         onClick={logout}
         className="p-4 text-white font-semibold bg-gradient-to-r from-red-500 to-orange-600 hover:bg-gradient-to-r hover:from-red-600 hover:to-orange-700 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm"
