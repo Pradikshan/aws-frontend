@@ -35,12 +35,18 @@ function App() {
 
 function AuthButtons() {
   const { user, email, logout } = useContext(AuthContext);
+  const navigate = useNavigate(); // Use useNavigate hook
+
+  const handleLogout = () => {
+    logout(); // Log out the user
+    navigate("/"); // Redirect to /home
+  };
 
   return user ? (
     <div className="flex items-center">
       <span className="text-white mr-4">{email}</span>{" "}
       <button
-        onClick={logout}
+        onClick={handleLogout} // Call handleLogout on click
         className="p-4 text-white font-semibold bg-gradient-to-r from-red-500 to-orange-600 hover:bg-gradient-to-r hover:from-red-600 hover:to-orange-700 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm"
       >
         Log Out
