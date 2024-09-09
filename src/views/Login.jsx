@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 import { CognitoUserPool } from "amazon-cognito-identity-js";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { AuthContext } from "../AuthContext"; // Import AuthContext
 
 const poolData = {
   UserPoolId: "eu-west-1_M6MvynQRS", // Replace with your Cognito User Pool ID
@@ -13,8 +14,8 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext); // Access the login function from context
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -37,8 +38,11 @@ const Login = () => {
         setMessage("Login successful!");
         console.log("Login successful:", accessToken);
 
+        // Update the context with the logged-in user
+        login(cognitoUser);
+
         // Redirect to /songs after successful login
-        navigate("/songs"); // This will redirect the user to /songs
+        navigate("/songs");
       },
       onFailure: (err) => {
         setMessage(`Login failed: ${err.message || JSON.stringify(err)}`);
