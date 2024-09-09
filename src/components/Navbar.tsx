@@ -56,13 +56,11 @@ function NavbarFunc({ className }: { className?: string }) {
           </MenuItem>
         )}
 
-        {!user && (
-          <MenuItem setActive={setActive} active={active} item="Pricing">
-            <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/pricing">View Subscription Info</HoveredLink>
-            </div>
-          </MenuItem>
-        )}
+        <MenuItem setActive={setActive} active={active} item="Pricing">
+          <div className="flex flex-col space-y-4 text-sm">
+            <HoveredLink href="/pricing">View Subscription Info</HoveredLink>
+          </div>
+        </MenuItem>
 
         <MenuItem setActive={setActive} active={active} item="About & Support">
           <div className="flex flex-col space-y-4 text-sm">
