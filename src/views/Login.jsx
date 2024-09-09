@@ -41,11 +41,11 @@ const Login = () => {
   };
 
   return (
-    <div className="container text-white">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+    <div className="mt-36 flex flex-col justify-center text-white">
+      <h2 className="text-white mx-auto font-bold text-2xl mb-10">Login</h2>
+      <form className="mx-auto" onSubmit={handleLogin}>
         <div className="form-group">
-          <label>Username</label>
+          <label className="text-white me-10">Username:</label>
           <input
             type="text"
             className="form-control"
@@ -55,7 +55,7 @@ const Login = () => {
           />
         </div>
         <div className="form-group">
-          <label>Password</label>
+          <label className="text-white me-10">Password:</label>
           <input
             type="password"
             className="form-control"
@@ -64,7 +64,10 @@ const Login = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="submit"
+          className="p-3 font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-xl hover:scale-110 transition-all ease-in-out duration-500 text-white"
+        >
           Login
         </button>
       </form>
