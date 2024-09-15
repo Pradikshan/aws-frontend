@@ -9,6 +9,7 @@ import FeaturesOverview from "../components/FeaturesOverview";
 import CompanySection from "../components/CompanySection";
 import TestimonialSection from "../components/TestimonialSection";
 import { BuiltWithCard } from "../components/BuiltWith";
+import { AlbumParallax } from "../components/AlbumParallax";
 
 const Home = () => {
   return (
@@ -24,7 +25,7 @@ const Home = () => {
         Built with
       </p>
       <BuiltWithCard />
-
+      <AlbumParallax />
       <CompanySection />
       <TestimonialSection />
     </>
