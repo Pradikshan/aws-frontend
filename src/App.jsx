@@ -38,8 +38,9 @@ function AuthButtons() {
   const navigate = useNavigate(); // Use useNavigate hook
 
   const handleLogout = () => {
-    logout(); // Log out the user
-    navigate("/"); // Redirect to /home
+    logout();
+    navigate("/");
+    document.location.reload();
   };
 
   return user ? (
