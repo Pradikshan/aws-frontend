@@ -9,6 +9,7 @@ import Albums from "../views/Albums";
 import Songs from "../views/Songs";
 import Login from "../views/Login";
 import SignUp from "../views/SignUp";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 export const Approutes = () => {
   return (
@@ -18,9 +19,30 @@ export const Approutes = () => {
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/about" element={<About />} />
       <Route path="/support" element={<Support />} />
-      <Route path="/artists" element={<Artists />} />
-      <Route path="/albums" element={<Albums />} />
-      <Route path="/songs" element={<Songs />} />
+      <Route
+        path="/artists"
+        element={
+          <ProtectedRoute>
+            <Artists />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/albums"
+        element={
+          <ProtectedRoute>
+            <Albums />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/songs"
+        element={
+          <ProtectedRoute>
+            <Songs />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
     </Routes>
