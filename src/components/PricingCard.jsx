@@ -1,8 +1,11 @@
 import React from "react";
 import { BackgroundGradient } from "./ui/background-gradient";
 import { CardSpotlight } from "./ui/card-spotlight";
+import { useNavigate } from "react-router-dom";
 
 const PricingCard = ({ pricingDetails }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex h-full">
       <BackgroundGradient className="h-full">
@@ -32,7 +35,10 @@ const PricingCard = ({ pricingDetails }) => {
                 <li key={index}>{feature}</li>
               ))}
             </ul>
-            <button className="w-11/12 p-3 my-4  rounded-full bg-black text-white font-bold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500">
+            <button
+              className="w-11/12 p-3 my-4  rounded-full bg-black text-white font-bold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500"
+              onClick={() => navigate("/signup")}
+            >
               {pricingDetails.cta}
             </button>
           </div>
