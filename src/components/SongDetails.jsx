@@ -1,10 +1,13 @@
+//newest code
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "./ui/use-outside-click";
 
 export function SongDetails() {
   const [songs, setSongs] = useState([]);
+  const [filteredSongs, setFilteredSongs] = useState([]); // Filtered songs
   const [active, setActive] = useState(null);
+  const [filters, setFilters] = useState({ album: "", genre: "", artist: "" }); // Filters
   const ref = useRef(null);
   const id = useId();
 
@@ -26,6 +29,7 @@ export function SongDetails() {
       );
 
       setSongs(songsWithAlbumArt);
+      setFilteredSongs(songsWithAlbumArt); // Set filtered songs
     };
 
     fetchSongs();
@@ -92,8 +96,35 @@ export function SongDetails() {
     return `${minutes}:${remainderSeconds.toString().padStart(2, "0")}`;
   }
 
+  // Handle Filter Change
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value,
+    }));
+  };
+
+  // Apply Filters
+  useEffect(() => {
+    const filtered = songs.filter((song) => {
+      return (
+        (filters.album === "" || song.albumName === filters.album) &&
+        (filters.genre === "" || song.genre === filters.genre) &&
+        (filters.artist === "" || song.artistName === filters.artist)
+      );
+    });
+    setFilteredSongs(filtered);
+  }, [filters, songs]);
+
+  // Get unique values for dropdowns
+  const uniqueAlbums = [...new Set(songs.map((song) => song.albumName))];
+  const uniqueGenres = [...new Set(songs.map((song) => song.genre))];
+  const uniqueArtists = [...new Set(songs.map((song) => song.artistName))];
+
   return (
     <>
+      {/* Modal Section */}
       <AnimatePresence>
         {active && typeof active === "object" && (
           <motion.div
@@ -108,36 +139,27 @@ export function SongDetails() {
         {active && typeof active === "object" ? (
           <div className="fixed inset-0 grid place-items-center z-[100]">
             <motion.button
-              key={`button-${active.title}-${id}`}
+              key={`button-${active.songName}-${id}`}
               layout
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              exit={{
-                opacity: 0,
-                transition: {
-                  duration: 0.05,
-                },
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { duration: 0.05 } }}
               className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
               onClick={() => setActive(null)}
             >
               <CloseIcon />
             </motion.button>
             <motion.div
-              layoutId={`card-${active.title}-${id}`}
+              layoutId={`card-${active.songName}-${id}`}
               ref={ref}
               className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
             >
-              <motion.div layoutId={`image-${active.title}-${id}`}>
+              <motion.div layoutId={`image-${active.songName}-${id}`}>
                 <img
                   width={200}
                   height={200}
                   src={active.albumArtUrl}
-                  alt={active.title}
+                  alt={active.songName}
                   className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
                 />
               </motion.div>
@@ -146,7 +168,7 @@ export function SongDetails() {
                 <div className="flex justify-between items-start p-4">
                   <div>
                     <motion.h3
-                      layoutId={`title-${active.title}-${id}`}
+                      layoutId={`title-${active.songName}-${id}`}
                       className="font-bold text-neutral-700 dark:text-neutral-200"
                     >
                       {active.songName}
@@ -165,7 +187,7 @@ export function SongDetails() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400"
                   >
                     <p>
                       <strong>Genre:</strong> {active.genre}
@@ -176,9 +198,6 @@ export function SongDetails() {
                     <p>
                       <strong>Year:</strong> {active.songYear}
                     </p>
-                    {/* <p>
-                      <strong>Track Length:</strong> {active.trackLength}
-                    </p> */}
                     <audio controls>
                       <source src={active.songFileUrl} type="audio/mpeg" />
                       Your browser does not support the audio element.
@@ -190,8 +209,55 @@ export function SongDetails() {
           </div>
         ) : null}
       </AnimatePresence>
+
+      {/* Filter Section */}
+      <div className="flex gap-4 my-4">
+        <select
+          name="album"
+          value={filters.album}
+          onChange={handleFilterChange}
+          className="p-2 border rounded-lg"
+        >
+          <option value="">All Albums</option>
+          {uniqueAlbums.map((album) => (
+            <option key={album} value={album}>
+              {album}
+            </option>
+          ))}
+        </select>
+
+        <select
+          name="genre"
+          value={filters.genre}
+          onChange={handleFilterChange}
+          className="p-2 border rounded-lg"
+        >
+          <option value="">All Genres</option>
+          {uniqueGenres.map((genre) => (
+            <option key={genre} value={genre}>
+              {genre}
+            </option>
+          ))}
+        </select>
+
+        <select
+          name="artist"
+          value={filters.artist}
+          onChange={handleFilterChange}
+          className="p-2 border rounded-lg"
+        >
+          <option value="">All Artists</option>
+          {uniqueArtists.map((artist) => (
+            <option key={artist} value={artist}>
+              {artist}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Song List Section */}
       <ul className="w-[90%] mx-auto gap-4">
-        {songs.map((song, index) => (
+        {filteredSongs.map((song, index) => (
           <motion.div
             layoutId={`card-${song.songName}-${id}`}
             key={`card-${song.songName}-${id}`}
@@ -234,12 +300,6 @@ export function SongDetails() {
                 Play
               </button>
             </motion.div>
-            {/* <motion.div
-              layoutId={`length-${song.songName}-${id}`}
-              className="text-sm font-medium text-white mt-4 md:mt-0"
-            >
-              {song.trackLength}
-            </motion.div> */}
           </motion.div>
         ))}
       </ul>
