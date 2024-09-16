@@ -97,7 +97,6 @@ export function AlbumDetail() {
               ref={ref}
               className="w-full max-w-6xl mx-auto bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden bg-gradient-to-r from-fuchsia-600  via-red-500 to-pink-600"
             >
-              {/* Header with Album Art and Details */}
               <motion.div className="relative h-80 flex items-end ">
                 <img
                   src={active.albumArtUrl}
@@ -113,7 +112,6 @@ export function AlbumDetail() {
                 </div>
               </motion.div>
 
-              {/* Tracklist */}
               <div className="p-6 text-white bg-slate-850 text-sm">
                 <ul>
                   {active.tracks.map((track, index) => (
@@ -127,6 +125,12 @@ export function AlbumDetail() {
                   ))}
                 </ul>
               </div>
+              <button
+                className="p-3 text-white font-semibold bg-gradient-to-r from-purple-500 to-indigo-500 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-xl mx-3 hover:scale-110 transition-all ease-in-out duration-500 mb-5"
+                onClick={() => alert("Clicked me")}
+              >
+                Purchase album
+              </button>
             </motion.div>
           </div>
         ) : null}
@@ -156,6 +160,12 @@ export function AlbumDetail() {
                   {album.albumName}
                 </motion.h3>
               </div>
+              {/* <button
+                className="p-3 text-white font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-xl mx-3 hover:scale-110 transition-all ease-in-out duration-500"
+                onClick={() => alert("Clicked me")}
+              >
+                Purchase
+              </button> */}
             </div>
           </motion.div>
         ))}
