@@ -5,7 +5,6 @@ import { useOutsideClick } from "./ui/use-outside-click";
 export function SongDetails() {
   const [songs, setSongs] = useState([]);
   const [active, setActive] = useState(null);
-  // const [activeSong, setActiveSong]
   const ref = useRef(null);
   const id = useId();
 
