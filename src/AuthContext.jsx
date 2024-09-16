@@ -7,7 +7,8 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [email, setEmail] = useState(null); // State for storing email
+  const [email, setEmail] = useState(null);
+  const [loading, setLoading] = useState(true); // New loading state
 
   useEffect(() => {
     const loggedInUser = UserPool.getCurrentUser();
@@ -15,7 +16,6 @@ export const AuthProvider = ({ children }) => {
       loggedInUser.getSession((err, session) => {
         if (session && session.isValid()) {
           setUser(loggedInUser);
-          // Fetch and set user attributes, including email
           loggedInUser.getUserAttributes((err, attributes) => {
             if (err) {
               console.error("Failed to get user attributes", err);
@@ -24,12 +24,15 @@ export const AuthProvider = ({ children }) => {
                 (attr) => attr.Name === "email"
               );
               if (emailAttr) {
-                setEmail(emailAttr.Value); // Set email
+                setEmail(emailAttr.Value);
               }
             }
           });
         }
+        setLoading(false); // Set loading to false once session is checked
       });
+    } else {
+      setLoading(false); // Set loading to false if no user is found
     }
   }, []);
 
@@ -41,7 +44,7 @@ export const AuthProvider = ({ children }) => {
       } else {
         const emailAttr = attributes.find((attr) => attr.Name === "email");
         if (emailAttr) {
-          setEmail(emailAttr.Value); // Set email
+          setEmail(emailAttr.Value);
         }
       }
     });
@@ -57,7 +60,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, email, login, logout }}>
+    <AuthContext.Provider value={{ user, email, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );
