@@ -67,8 +67,8 @@ const Features = () => {
           <div className="mx-5">
             <p className="feature-heading">Offline Listening</p>
             <p>
-              Download your favorite tracks and listen without an internet
-              connection.
+              Purchase and download your favorite tracks and listen without an
+              internet connection.
             </p>
           </div>
         }
