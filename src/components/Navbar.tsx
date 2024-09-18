@@ -45,6 +45,12 @@ function NavbarFunc({ className }: { className?: string }) {
               </div>
             </MenuItem>
 
+            <MenuItem setActive={setActive} active={active} item="Profile">
+              <div className="flex flex-col space-y-4 text-sm">
+                <HoveredLink href="/profile">Profile</HoveredLink>
+              </div>
+            </MenuItem>
+
             <MenuItem setActive={setActive} active={active} item="Support">
               <div className="flex flex-col space-y-4 text-sm">
                 <HoveredLink href="/support">Support</HoveredLink>
