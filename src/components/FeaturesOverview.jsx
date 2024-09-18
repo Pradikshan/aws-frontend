@@ -22,7 +22,7 @@ const FeaturesOverview = () => {
           icon={"/images/genre.png"}
           heading={"Wide Genre Selection"}
           text={
-            "Explore an expansive library spanning every genre, from timeless classics to the latest hits, all in one place."
+            "Explore an expansive library spanning every genre, from timeless classics to the latest hits, all in one place at an affordable price."
           }
         />
         <FeaturedCard
