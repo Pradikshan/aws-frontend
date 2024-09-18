@@ -7,7 +7,7 @@ import {
 
 // Cognito User Pool configuration without ClientSecret
 const poolData = {
-  UserPoolId: "eu-west-1_M6MvynQRS",
+  UserPoolId: "eu-west-1_pKISgVYlu",
   ClientId: "6sd5qel0768tt39pst5991pf23",
 };
 const userPool = new CognitoUserPool(poolData);
