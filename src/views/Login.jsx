@@ -218,7 +218,7 @@ import { AuthContext } from "../AuthContext";
 
 const poolData = {
   UserPoolId: "eu-west-1_pKISgVYlu",
-  ClientId: "6hep62fn6hsvjp1526vd9u1pd8",
+  ClientId: "6sd5qel0768tt39pst5991pf23",
 };
 const userPool = new CognitoUserPool(poolData);
 
