@@ -11,8 +11,6 @@ const ProfileManagement = () => {
   const [updatedAddress, setUpdatedAddress] = useState(address || "");
   const [updatedName, setUpdatedName] = useState(name || "");
 
-  const [isSaved, setIsSaved] = useState(false);
-
   // Update user attributes function
   const handleSave = () => {
     // Validate input
