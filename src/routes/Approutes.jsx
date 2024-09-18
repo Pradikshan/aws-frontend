@@ -10,6 +10,7 @@ import Songs from "../views/Songs";
 import Login from "../views/Login";
 import SignUp from "../views/SignUp";
 import ProtectedRoute from "../components/ProtectedRoute";
+import Profile from "../views/Profile";
 
 export const Approutes = () => {
   return (
@@ -40,6 +41,14 @@ export const Approutes = () => {
         element={
           <ProtectedRoute>
             <Songs />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
           </ProtectedRoute>
         }
       />
