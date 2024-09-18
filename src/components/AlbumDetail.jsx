@@ -1,4 +1,3 @@
-//workinf
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "./ui/use-outside-click";
@@ -11,7 +10,7 @@ function formatDuration(seconds) {
 
 export function AlbumDetail() {
   const [active, setActive] = useState(null);
-  const [albums, setAlbums] = useState([]); // State to store the list of albums
+  const [albums, setAlbums] = useState([]);
   const id = useId();
   const ref = useRef(null);
 
@@ -35,7 +34,6 @@ export function AlbumDetail() {
   }, [active]);
 
   useEffect(() => {
-    // Fetch the list of albums from your API
     async function fetchAlbums() {
       try {
         const response = await fetch(
@@ -60,6 +58,36 @@ export function AlbumDetail() {
       setActive({ ...album, tracks: songs });
     } catch (error) {
       console.error("Error fetching songs:", error);
+    }
+  };
+
+  const handlePurchaseClick = async () => {
+    const payload = {
+      album_id: active.albumId,
+      album_name: active.albumName,
+    };
+
+    try {
+      const response = await fetch(
+        "https://dfg5xvb41m.execute-api.eu-west-1.amazonaws.com/dev/update-price-analytics",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (response.ok) {
+        alert("Purchase recorded successfully!");
+      } else {
+        console.error("Failed to record purchase.");
+        alert("Failed to record purchase. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again.");
     }
   };
 
@@ -101,13 +129,17 @@ export function AlbumDetail() {
                 <img
                   src={active.albumArtUrl}
                   alt={active.albumName}
-                  className="absolute bottom-0 left-4 w-32 h-32 object-cover object-top rounded-xl shadow-2xl mb-5"
+                  className="absolute bottom-0 left-4 w-32 h-32 object-cover object-top rounded-xl shadow-2xl mb-8"
                 />
                 <div className="ml-40 mb-4 text-white p-4">
                   <h3 className="text-4xl font-bold">{active.albumName}</h3>
                   <p className="text-lg">{active.artistName}</p>
                   <p className="text-sm">
                     {active.albumYear} • {active.genre}
+                  </p>
+                  <p className="text-sm">Published by: {active.trackLabel}</p>
+                  <p className="text-sm">
+                    Band composition: {active.bandComposition}
                   </p>
                 </div>
               </motion.div>
@@ -127,7 +159,7 @@ export function AlbumDetail() {
               </div>
               <button
                 className="p-3 text-white font-semibold bg-gradient-to-r from-purple-500 to-indigo-500 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-xl mx-3 hover:scale-110 transition-all ease-in-out duration-500 mb-5"
-                onClick={() => alert("Clicked me")}
+                onClick={handlePurchaseClick}
               >
                 Purchase album
               </button>
@@ -139,33 +171,23 @@ export function AlbumDetail() {
       <ul className="grid grid-cols-1 md:grid-cols-4 items-start gap-4 my-10 mx-8">
         {albums.map((album) => (
           <motion.div
-            layoutId={`card-${album.albumName}-${id}`}
-            key={album.albumName}
+            key={album.albumId}
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl cursor-pointer hover:scale-105 transition-transform ease-in-out duration-300"
             onClick={() => handleAlbumClick(album)}
-            className="p-4 flex flex-col hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
           >
-            <div className="flex gap-4 flex-col w-full">
-              <motion.div layoutId={`image-${album.albumName}-${id}`}>
-                <img
-                  src={album.albumArtUrl}
-                  alt={album.albumName}
-                  className="h-60 w-full rounded-lg object-cover object-top"
-                />
-              </motion.div>
-              <div className="flex justify-center items-center flex-col">
-                <motion.h3
-                  layoutId={`title-${album.albumName}-${id}`}
-                  className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base"
-                >
-                  {album.albumName}
-                </motion.h3>
-              </div>
-              {/* <button
-                className="p-3 text-white font-semibold bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 rounded-xl mx-3 hover:scale-110 transition-all ease-in-out duration-500"
-                onClick={() => alert("Clicked me")}
-              >
-                Purchase
-              </button> */}
+            <img
+              src={album.albumArtUrl}
+              alt={album.albumName}
+              className="w-full h-60 object-cover object-top"
+            />
+            <div className="p-4 text-white">
+              <h2 className="text-xl font-semibold">{album.albumName}</h2>
+              <p className="text-sm">{album.artistName}</p>
+              <p className="text-sm">{album.genre}</p>
             </div>
           </motion.div>
         ))}
