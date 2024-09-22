@@ -169,6 +169,11 @@ const SignUp = () => {
                 Sign Up
               </button>
             </form>
+            <a href="/login">
+              <p className="text-center underline text-decoration-sky-500 mt-5 text-sky-400">
+                Already have an account? Click here to login
+              </p>
+            </a>
           </>
         ) : (
           <>
