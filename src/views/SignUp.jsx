@@ -5,7 +5,6 @@ import {
   CognitoUser,
 } from "amazon-cognito-identity-js";
 
-// Cognito User Pool configuration without ClientSecret
 const poolData = {
   UserPoolId: "eu-west-1_pKISgVYlu",
   ClientId: "6sd5qel0768tt39pst5991pf23",
@@ -37,41 +36,32 @@ const SignUp = () => {
 
     console.log("Signing up user:", username);
 
-    userPool.signUp(
-      username,
-      password,
-      attributeList,
-      null, // No ValidationData needed
-      (err, result) => {
-        if (err) {
-          if (err.code === "UsernameExistsException") {
-            setMessage(
-              "This username is already taken. Please choose another."
-            );
-          } else if (
-            err.code === "InvalidParameterException" &&
-            err.message.includes("email")
-          ) {
-            setMessage(
-              "This email is already registered. Please use a different email."
-            );
-          } else {
-            setMessage(`Error: ${err.message || JSON.stringify(err)}`);
-          }
-          console.error("Sign up error:", err);
-          return;
+    userPool.signUp(username, password, attributeList, null, (err, result) => {
+      if (err) {
+        if (err.code === "UsernameExistsException") {
+          setMessage("This username is already taken. Please choose another.");
+        } else if (
+          err.code === "InvalidParameterException" &&
+          err.message.includes("email")
+        ) {
+          setMessage(
+            "This email is already registered. Please use a different email."
+          );
+        } else {
+          setMessage(`Error: ${err.message || JSON.stringify(err)}`);
         }
-
-        console.log("Sign up result:", result);
-        setMessage(
-          "Sign-up successful! Please check your email for the confirmation code."
-        );
-        setIsSignedUp(true);
+        console.error("Sign up error:", err);
+        return;
       }
-    );
+
+      console.log("Sign up result:", result);
+      setMessage(
+        "Sign-up successful! Please check your email for the confirmation code."
+      );
+      setIsSignedUp(true);
+    });
   };
 
-  // Confirmation function
   const handleConfirmation = (e) => {
     e.preventDefault();
 
