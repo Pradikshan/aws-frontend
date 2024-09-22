@@ -5,9 +5,9 @@ import { useOutsideClick } from "./ui/use-outside-click";
 
 export function SongDetails() {
   const [songs, setSongs] = useState([]);
-  const [filteredSongs, setFilteredSongs] = useState([]); // Filtered songs
+  const [filteredSongs, setFilteredSongs] = useState([]);
   const [active, setActive] = useState(null);
-  const [filters, setFilters] = useState({ album: "", genre: "", artist: "" }); // Filters
+  const [filters, setFilters] = useState({ album: "", genre: "", artist: "" });
   const ref = useRef(null);
   const id = useId();
 
@@ -29,7 +29,7 @@ export function SongDetails() {
       );
 
       setSongs(songsWithAlbumArt);
-      setFilteredSongs(songsWithAlbumArt); // Set filtered songs
+      setFilteredSongs(songsWithAlbumArt);
     };
 
     fetchSongs();
