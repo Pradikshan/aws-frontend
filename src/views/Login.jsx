@@ -39,7 +39,6 @@ const Login = () => {
         setMessage("Login successful!");
         console.log("Login successful:", accessToken);
 
-        // Set user in context after successful login
         login(cognitoUser);
 
         navigate("/songs");
