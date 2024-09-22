@@ -242,8 +242,8 @@ export const AuthProvider = ({ children }) => {
         if (emailAttr) setEmail(emailAttr.Value);
         if (nameAttr) setName(nameAttr.Value);
         if (userTypeAttr) setUserType(userTypeAttr.Value);
-        if (addressAttr) setAddress(addressAttr.Value); // Set address during login
-        if (phoneAttr) setPhoneNumber(phoneAttr.Value); // Set phone number during login
+        if (addressAttr) setAddress(addressAttr.Value);
+        if (phoneAttr) setPhoneNumber(phoneAttr.Value);
       }
     });
   };
