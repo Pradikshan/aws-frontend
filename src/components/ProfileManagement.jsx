@@ -19,12 +19,9 @@ const ProfileManagement = () => {
       return;
     }
 
-    // Make sure phone number is in the correct format
     const formattedPhoneNumber = updatedPhoneNumber.startsWith("+")
       ? updatedPhoneNumber
-      : `+1${updatedPhoneNumber}`; // Assuming default country code is +1
-
-    // Construct the attributes array
+      : `+94${updatedPhoneNumber}`;
     const attributes = [
       { Name: "phone_number", Value: formattedPhoneNumber },
       { Name: "address", Value: updatedAddress },
@@ -73,8 +70,7 @@ const ProfileManagement = () => {
             value={updatedName}
             onChange={(e) => setUpdatedName(e.target.value)}
           />
-          {/* Email is now displayed but not editable */}
-          {/* Editable fields */}
+
           <input
             type="text"
             className="input-field"
@@ -90,7 +86,6 @@ const ProfileManagement = () => {
           />
         </div>
       </div>
-      {/* Save button */}
       <button
         onClick={handleSave}
         className="p-4 mt-4 text-white font-semibold bg-gradient-to-r from-green-500 to-blue-600 hover:bg-gradient-to-r hover:from-green-600 hover:to-blue-700 rounded-full mx-3 hover:scale-110 transition-all ease-in-out duration-500 text-sm"
