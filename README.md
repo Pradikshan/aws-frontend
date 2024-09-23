@@ -17,6 +17,10 @@ AWS Services for backend services
 
 ![solution_design](./images/dreamstreamer-customer-final-v111-2.png)
 
+## Solution Design Document
+
+![solution_design_doc](./ECDWA_2___Report%20-%20Final.pdf)
+
 ## Screenshots of the UI
 
 ### Homepage
