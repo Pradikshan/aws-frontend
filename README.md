@@ -15,7 +15,7 @@ AWS Services for backend services
 
 ## AWS Solution Design Diagram for Customer Facing Website
 
-![solution_design](./images/dreamstreamer-customer-solution-design-final.png)
+![solution_design](./images/dreamstreamer-customer-final-v111-2.png)
 
 ## Screenshots of the UI
 
