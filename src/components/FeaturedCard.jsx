@@ -10,7 +10,13 @@ const FeaturedCard = ({ icon, heading, text }) => {
             See more
           </button> */}
           <div className="flex flex-row items-center">
-            <img src={icon} width={35} alt="feature-icon" className="me-4" />
+            <img
+              src={icon}
+              width={35}
+              alt="feature-icon"
+              className="me-4"
+              loading="lazy"
+            />
             <p className="text-lg font-bold">{heading}</p>
           </div>
           <p className="mt-3">{text}</p>
