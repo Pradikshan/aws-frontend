@@ -19,7 +19,7 @@ AWS Services for backend services
 
 ## Solution Design Document
 
-![solution_design_doc](./ECDWA_2___Report%20-%20Final.pdf)
+![solution_design_doc](https://github.com/Pradikshan/aws-frontend/blob/main/ECDWA_2___Report%20-%20Final.pdf)
 
 ## Screenshots of the UI
 
