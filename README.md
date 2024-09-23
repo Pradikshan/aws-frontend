@@ -15,7 +15,7 @@ AWS Services for backend services
 
 ## Solution Design Document
 
-![solution_design_doc](https://github.com/Pradikshan/aws-frontend/blob/main/ECDWA_2___Report%20-%20Final.pdf)
+![solution_design_doc](https://1drv.ms/f/s!Alfq1M-yOtLWbqGGZfusbh2mKok?e=4a95Ob)
 
 ## AWS Solution Design Diagram for Customer Facing Website
 
