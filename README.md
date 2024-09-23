@@ -13,13 +13,13 @@ AWS Services for backend services
 
 [Live demo link](http://d32uficm9gfop7.cloudfront.net)
 
-## AWS Solution Design Diagram for Customer Facing Website
-
-![solution_design](./images/dreamstreamer-customer-final-v111-2.png)
-
 ## Solution Design Document
 
 ![solution_design_doc](https://github.com/Pradikshan/aws-frontend/blob/main/ECDWA_2___Report%20-%20Final.pdf)
+
+## AWS Solution Design Diagram for Customer Facing Website
+
+![solution_design](./images/dreamstreamer-customer-final-v111-2.png)
 
 ## Screenshots of the UI
 
