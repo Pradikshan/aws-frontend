@@ -211,7 +211,7 @@ export function SongDetails() {
       </AnimatePresence>
 
       {/* Filter Section */}
-      <div className="flex gap-4 my-4 ms-24">
+      <div className="flex flex-col md:flex-row gap-4 my-4 md:ms-24">
         <select
           name="album"
           value={filters.album}
