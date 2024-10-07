@@ -2,7 +2,7 @@ import { ParallaxScrollSecond } from "./ui/parallax-scroll-2";
 
 export function AlbumParallax() {
   return (
-    <div className="mt-36">
+    <div className="hidden sm:block mt-36">
       <p className="section-heading text-center">
         Take a peek at the top songs and albums on DreamStreamer
       </p>
