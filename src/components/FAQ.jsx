@@ -2,7 +2,7 @@ import React from "react";
 
 const FAQ = () => {
   return (
-    <div className="grid grid-cols-2 gap-4 mx-8 mt-36 text-white">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-8 mt-36 text-white">
       <div className="flex flex-col">
         <p className="text-4xl font-semibold mb-2">
           Frequently asked questions
