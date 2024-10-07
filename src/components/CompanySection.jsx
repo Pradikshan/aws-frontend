@@ -3,7 +3,7 @@ import React from "react";
 const CompanySection = () => {
   return (
     <div>
-      <div className="flex flex-col justify-center items-center mt-36">
+      <div className="hidden md:flex flex-col justify-center items-center mt-36">
         <p className="section-heading">Our Music Partners</p>
         <div className="flex flex-row justify-between">
           <img
