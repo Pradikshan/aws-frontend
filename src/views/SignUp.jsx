@@ -4,6 +4,7 @@ import {
   CognitoUserAttribute,
   CognitoUser,
 } from "amazon-cognito-identity-js";
+import { Link } from "react-router-dom";
 
 const poolData = {
   UserPoolId: "eu-west-1_pKISgVYlu",
@@ -187,9 +188,10 @@ const SignUp = () => {
             </form>
           </>
         )}
-
         {message && (
-          <div className="alert alert-info mt-10 text-white">{message}</div>
+          <div className="alert alert-info mt-10 text-white">
+            {message} <Link to={"/login"}>Click here!</Link>
+          </div>
         )}
       </div>
     </div>
