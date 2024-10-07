@@ -92,7 +92,7 @@ const Pricing = () => {
       <p className="text-white text-center text-xl -mt-8">
         Start with a free plan, upgrade anytime!
       </p>
-      <div className="grid grid-cols-3 gap-8 mx-8 my-20">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-8 my-20">
         {pricingDetails.map((detail, index) => (
           <PricingCard pricingDetails={detail} key={index} />
         ))}
