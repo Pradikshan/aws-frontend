@@ -27,7 +27,7 @@ export function TypewriterTextEffect() {
   ];
   return (
     <div className="flex flex-col items-center justify-center h-[40rem]  ">
-      <p className="text-white text-2xl font-bold">
+      <p className="text-white text-2xl font-bold text-center">
         Unleash Your Personal Soundtrack
       </p>
       <TypewriterEffectSmooth words={words} />
