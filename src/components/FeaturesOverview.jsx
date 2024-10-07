@@ -6,7 +6,7 @@ const FeaturesOverview = () => {
   return (
     <div className="mx-6">
       <h1 className="section-heading text-center">Features Overview</h1>
-      <div className="grid grid-cols-3 gap-8 my-7 mx-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-7 mx-5">
         {/* <FeaturesBox />
         <FeaturesBox />
         <FeaturesBox />
