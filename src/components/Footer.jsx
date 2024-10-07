@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="mt-8 p-5 bg-[#162032] text-white grid grid-cols-4 gap-3">
+    <div className="mt-8 p-5 bg-[#162032] text-white grid grid-cols-1 md:grid-cols-4 gap-3">
       <div>
         <p className="footer-heading">Quick Links</p>
         <div className="footer-link-container">
