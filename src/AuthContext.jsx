@@ -158,6 +158,7 @@
 //   );
 // };
 
+// this sued to work
 import React, { createContext, useState, useEffect } from "react";
 import { CognitoUserPool } from "amazon-cognito-identity-js";
 import { poolData } from "./config"; // Cognito User Pool Config
@@ -173,9 +174,9 @@ export const AuthProvider = ({ children }) => {
   const [username, setUsername] = useState(null);
   const [name, setName] = useState(null);
   const [userType, setUserType] = useState(null);
-  const [address, setAddress] = useState(null); // Store address
-  const [phoneNumber, setPhoneNumber] = useState(null); // Store phone number
-  const [loading, setLoading] = useState(true); // Loading state
+  const [address, setAddress] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // Function to handle session and retrieve user attributes
   useEffect(() => {
@@ -208,22 +209,21 @@ export const AuthProvider = ({ children }) => {
               if (emailAttr) setEmail(emailAttr.Value);
               if (nameAttr) setName(nameAttr.Value);
               if (userTypeAttr) setUserType(userTypeAttr.Value);
-              if (addressAttr) setAddress(addressAttr.Value); // Set the address
-              if (phoneAttr) setPhoneNumber(phoneAttr.Value); // Set the phone number
+              if (addressAttr) setAddress(addressAttr.Value);
+              if (phoneAttr) setPhoneNumber(phoneAttr.Value);
             }
           });
         }
-        setLoading(false); // Set loading to false once session is checked
+        setLoading(false);
       });
     } else {
-      setLoading(false); // Set loading to false if no user is found
+      setLoading(false);
     }
   }, []);
 
-  // Function to handle login and fetch attributes
   const login = (user) => {
     setUser(user);
-    setUsername(user.getUsername()); // Set username on login
+    setUsername(user.getUsername());
 
     user.getUserAttributes((err, attributes) => {
       if (err) {
@@ -248,7 +248,6 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
-  // Function to handle logout
   const logout = () => {
     const loggedInUser = UserPool.getCurrentUser();
     if (loggedInUser) {
@@ -258,8 +257,8 @@ export const AuthProvider = ({ children }) => {
       setName(null);
       setUsername(null);
       setUserType(null);
-      setAddress(null); // Clear address on logout
-      setPhoneNumber(null); // Clear phone number on logout
+      setAddress(null);
+      setPhoneNumber(null);
     }
   };
 
